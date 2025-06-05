@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Especialistas</title>
+  <link rel="stylesheet" href="registroEspecialista.css">
+</head>
+
+<body>
+  <header>
+    <a href="#" class="medTracker">MEDTRACKER</a>
+  </header>
+
+  <div class="contenedor">
+    <!-- Formulario -->
+    <div class="contenedorForm">
+      <h2>REGISTRO DE ESPECIALISTA</h2>
+      <form id="registroEspecialistaForm">
+        <h5>NOMBRE</h5>
+        <input type="text" id="nombre" required />
+        <h5>APELLIDO</h5>
+        <input type="text" id="apellido" required />
+        <h5>CORREO ELECTRÓNICO</h5>
+        <input type="email" id="email" required />
+        <h5>CONTRASEÑA</h5>
+        <input type="password" id="contraseña" required />
+        <h5>REPETIR CONTRASEÑA</h5>
+        <input type="password" id="contraseñaRepetida" required />
+        <h5>N° DE MATRÍCULA</h5>
+        <input type="text" id="matricula" required />
+        <h5>ESPECIALIDAD</h5>
+        <input type="text" id="especialidad" required />
+
+        <p id="mensajeEspecialista" class="ocultarMensajeError">Complete todos los campos correctamente.</p>
+        <a href="../../Login/login.html">¿Ya tienes una cuenta? Inicia sesión.</a>
+        <button type="submit">REGISTRARSE</button>
+      </form>
+    </div>
+
+    <div class="imagenLateral">
+      <img src="../../img/registroEspecialista.avif" alt="Imagen especialista" />
+    </div>
+  </div>
+</body>
+<script src="registroEspecialista.js"></script>
+</html>
