@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('../img/fondo.jpg');
+    background-image: url("../../img/fondo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -31,68 +31,102 @@ header {
 }
 
 .contenedor {
+    display: flex;
+    width: 900px;
+    height: 750px;
+    margin-top: 40px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
     background-color: white;
-    border-radius: 20px;
-    margin-top: 60px;
-    padding: 30px 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contenedorForm {
+    width: 40%;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 400px;
+    justify-content: center;
 }
 
 h2 {
+    font-size: 20px;
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-form {
+form{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-h5 {
+h5{
     color: #676767;
-    margin: 10px 0 5px;
+    margin: 8px 0 4px;
+    font-size: 13px;
 }
 
 input {
     width: 100%;
     background-color: rgb(226, 226, 226);
     border: none;
-    border-radius: 20px;
-    height: 35px;
-    padding: 0 10px;
-    margin-bottom: 10px;
+    border-radius: 15px;
+    height: 30px;
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
 }
 
-button {
+button{
     width: 100%;
-    height: 40px;
-    border-radius: 20px;
+    height: 35px;
+    border-radius: 15px;
     border: none;
     background-color: #00acdb;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+button:hover{
     background-color: #008bb5;
 }
 
 .mostrarMensajeError {
     visibility: visible;
     color: red;
+    font-size: 12px
 }
 
 .mensajeError {
     visibility: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+.imagenLateral {
+    width: 60%;
+    height: 100%;
+}
 
+.imagenLateral img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.contenedorForm a {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+  color: #00acdb;
+  text-decoration: none;
+}
+
+.contenedorForm a:hover {
+  text-decoration: underline;
+}
