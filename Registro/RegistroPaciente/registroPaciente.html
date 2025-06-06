@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro Paciente</title>
+  <link rel="stylesheet" href="registroPaciente.css">
+</head>
+
+<body>
+  <header>
+    <a href="#" class="medTracker">MEDTRACKER</a>
+  </header>
+
+  <div class="contenedor">
+    <div class="imagenLateral">
+      <img src="../../img/registroPaciente.avif" alt="Imagen paciente" />
+    </div>
+
+    <div class="contenedorForm">
+      <h2>REGISTRO DE PACIENTE</h2>
+      <form id="registroPacienteForm">
+        <h5>NOMBRE</h5>
+        <input type="text" id="nombre"/>
+        <h5>APELLIDO</h5>
+        <input type="text" id="apellido"/>
+        <h5>DNI</h5>
+        <input type="text" id="dni"/>
+        <h5>FECHA DE NACIMIENTO</h5>
+        <input type="date" id="fechaNacimiento"/>
+        <h5>CORREO ELECTRÓNICO</h5>
+        <input type="email" id="email"/>
+        <h5>N° DE TELÉFONO</h5>
+        <input type="tel" id="telefono">
+        <h5>CONTRASEÑA</h5>
+        <input type="password" id="contraseña"/>
+        <h5>REPETIR CONTRASEÑA</h5>
+        <input type="password" id="contraseñaRepetida"/>
+
+        <p id="mensajePaciente" class="mensajeError"></p>
+        <a href="/Trabajo-Final-MedTracker/Login/login.html">¿Ya tienes una cuenta? Inicia sesión.</a>
+        <button type="submit">REGISTRARSE</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="registroPaciente.js"></script>
+</body>
+</html>

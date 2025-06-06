@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("registroEspecialistaForm");
-  const mensajeError = document.getElementById("mensajeEspecialista");
+  const form = document.getElementById("registroPacienteForm");
+  const mensajeError = document.getElementById("mensajePaciente");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
+    const dni = document.getElementById("dni").value.trim();
+    const fechaNacimiento = document.getElementById("fechaNacimiento").value.trim();
     const email = document.getElementById("email").value.trim();
     const contraseña = document.getElementById("contraseña").value;
     const contraseñaRepetida = document.getElementById("contraseñaRepetida").value;
-    const matricula = document.getElementById("matricula").value.trim();
-    const especialidad = document.getElementById("especialidad").value.trim();
 
-    if (!nombre || !apellido || !email || !contraseña || !contraseñaRepetida || !matricula || !especialidad) {
+    if (!nombre || !apellido || !dni || !fechaNacimiento || !email || !contraseña || !contraseñaRepetida) {
       mostrarError("Asegúrese de completar todos los campos correctamente.");
       return;
     }
@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    alert("Registro exitoso!"); //me dirigira a la seccion correspondiente una vez este
+    alert("Registro exitoso!"); //cuando este todo, nos redirige a la pagina correspondiente
     form.reset();
   });
 
   function mostrarError(mensaje) {
     mensajeError.textContent = mensaje;
-    mensajeError.classList.remove("mensajeError")
+    mensajeError.classList.remove("mensajeError");
     mensajeError.classList.add("mostrarMensajeError");
   }
 
@@ -44,17 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let tieneMayuscula = false;
     let tieneNumero = false;
 
-    //logica para verificar una contraseña completa
     for (let i = 0; i < contraseña.length; i++) {
       const char = contraseña[i];
-      if (!isNaN(char)) {
-        tieneNumero = true;
-      } else if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
-        tieneMayuscula = true;
-      }
+      if (!isNaN(char)) tieneNumero = true;
+      if (char === char.toUpperCase() && char.match(/[A-Z]/)) tieneMayuscula = true;
     }
 
     return tieneMayuscula && tieneNumero;
   }
 });
-

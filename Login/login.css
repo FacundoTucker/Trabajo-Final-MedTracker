@@ -90,7 +90,7 @@ button:hover {
     color: red;
 }
 
-.ocultarMensajeError {
+.mensajeError {
     visibility: hidden;
 }
 
