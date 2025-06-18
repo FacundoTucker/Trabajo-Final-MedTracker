@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loguin</title>
+    <title>Login</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -13,11 +13,12 @@
     <div class="contenedor">
         <h2>INICIO DE SESIÓN</h2>
         <form id="loginForm">
-            <h5>CORREO ELECTRÓNICO</h5>
+            <label>CORREO ELECTRÓNICO</label>
             <input type="email" id="email" placeholder="Ingrese su email">
-            <h5>CONTRASEÑA</h5>
+            <label>CONTRASEÑA</label>
             <input type="password" id="password" placeholder="Ingrese su contraseña">
             <p id="mensajeError" class="mensajeError">Datos inválidos. Intente nuevamente.</p>
+            <a href="../RecuperarContraseña/recuperarContraseña.html">¿Has olvidado la contraseña?</a>
             <button>INICIAR SESIÓN</button> 
         </form>
     </div>

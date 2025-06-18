@@ -17,22 +17,42 @@
     <div class="contenedorForm">
       <h2>REGISTRO DE ESPECIALISTA</h2>
       <form id="registroEspecialistaForm">
-        <h5>NOMBRE</h5>
+        <label>NOMBRE</label>
         <input type="text" id="nombre"/>
-        <h5>APELLIDO</h5>
+        <label>APELLIDO</label>
         <input type="text" id="apellido"/>
-        <h5>CORREO ELECTRÓNICO</h5>
+        <label>FECHA DE NACIMIENTO</label>
+        <input type="date" id="fechaNacimiento">
+        <label>TIPO Y N° DE DOCUMENTO</label>
+        <div class="documentoContainer">
+          <select id="tipoDocumento" name="tipoDocumento">
+          <option value="">Seleccionar tipo</option>
+          <option value="dni">DNI</option>
+          <option value="libretaCivica">Libreta Cívica</option>
+          <option value="libretaEnrolamiento">Libreta de Enrolamiento</option>
+          <option value="cedulaIdentidad">Cédula de Identidad</option>
+          <option value="cedulaMercosur">Cédula del Mercosur</option>
+          <option value="pasaporte">Pasaporte</option>
+          <option value="ciExtranjera">C.I Extranjera</option>
+          </select>
+          <input type="text" id="numeroDocumento"/>
+        </div>
+        <label>DOMICILIO</label>
+        <input type="text" id="domicilio">
+        <label>CORREO ELECTRÓNICO</label>
         <input type="email" id="email"/>
-        <h5>CONTRASEÑA</h5>
-        <input type="password" id="contraseña"/>
-        <h5>REPETIR CONTRASEÑA</h5>
-        <input type="password" id="contraseñaRepetida"/>
-        <h5>N° DE MATRÍCULA</h5>
+        <label>N° DE TELÉFONO</label>
+        <input type="tel" id="telefono">
+        <label>N° DE MATRÍCULA</label>
         <input type="text" id="matricula"/>
-        <h5>ESPECIALIDAD</h5>
+        <label>ESPECIALIDAD</label>
         <input type="text" id="especialidad"/>
+        <label>CONTRASEÑA</label>
+        <input type="password" id="contraseña"/>
+        <label>REPETIR CONTRASEÑA</label>
+        <input type="password" id="contraseñaRepetida"/>
 
-        <p id="mensajeEspecialista" class="mensajeError"></p>
+        <p id="mensajeEspecialista" class="mensajeError">mensajeError</p>
         <a href="../../Login/login.html">¿Ya tienes una cuenta? Inicia sesión.</a>
         <button type="submit">REGISTRARSE</button>
       </form>
