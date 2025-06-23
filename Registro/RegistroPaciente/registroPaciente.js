@@ -27,7 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
       mostrarError("La contraseña debe tener al menos 7 caracteres, una mayúscula y un número.");
       return;
     }
+        // Guardar paciente en localStorage (solo para pruebas)
+    const nuevoPaciente = {
+      nombre,
+      apellido,
+      dni,
+      fechaNacimiento,
+      email,
+      telefono,
+    };
 
+    const pacientesGuardadosRaw = localStorage.getItem("pacientesDePrueba");
+    const pacientes = pacientesGuardadosRaw ? JSON.parse(pacientesGuardadosRaw) : [];
+
+    pacientes.push(nuevoPaciente);
+    localStorage.setItem("pacientesDePrueba", JSON.stringify(pacientes));
     alert("Registro exitoso!"); //cuando este todo, nos redirige a la pagina correspondiente
     form.reset();
   });
