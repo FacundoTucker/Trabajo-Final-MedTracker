@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Turnos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="encabezado">
+    <div class="logo-izquierda">
+      <img src="logo.jpg" alt="Logo del sistema" class="logo" />
+      <h1>Gestor de Turnos</h1>
+    </div>
+    <nav>
+      <button onclick="mostrarVista('paciente')">Paciente</button>
+      <button onclick="mostrarVista('medico')">Médico</button>
+    </nav>
+
+  </header>
+  <main>
+    <!-- Vista PACIENTE -->
+    <section id="vistaPaciente" style="display: none;">
+      <h2>Vista Paciente</h2>
+
+      <section id="turnoPaciente">
+        <h3>Solicitar Turno</h3>
+        <label for="nombrePaciente">Nombre del paciente</label>
+        <input type="text" id="nombrePaciente" />
+
+        <label for="especialidad">Especialidad</label>
+        <select id="especialidad">
+          <option value="clinica">Clínica Médica</option>
+          <option value="pediatria">Pediatría</option>
+          <option value="dermatologia">Dermatología</option>
+        </select>
+
+        <label for="fechaTurno">Fecha</label>
+        <input type="date" id="fechaTurno" />
+        <label for="horaTurno">Hora</label>
+        <input type="time" id="horaTurno" />
+
+
+        <button onclick="reservarTurnoPaciente()">Reservar Turno</button>
+      </section>
+
+      <section id="historialTurnos">
+        <h3>Historial de Turnos</h3>
+        <ul id="listaHistorial" class="tarjeta-lista"></ul>
+      </section>
+
+      <section id="archivosMedicos">
+        <h3>Archivos Médicos</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Archivo</th>
+              <th>Fecha</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Estudio_Sangre.pdf</td>
+              <td>2025-06-01</td>
+              <td>Laboratorio</td>
+            </tr>
+            <tr>
+              <td>Radiografía_Torax.jpg</td>
+              <td>2025-05-15</td>
+              <td>Imagen</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <!-- Vista MEDICO -->
+    <section id="vistaMedico" style="display: none;">
+      <h2>Vista Médico</h2>
+    
+      <div class="contenedor-medico">
+        <!-- MENÚ LATERAL -->
+        <aside class="menu-lateral">
+          <ul>
+            <li onclick="mostrarSeccion('historiales')">📋 Historiales Médicos</li>
+            <li onclick="mostrarSeccion('perfiles')">👥 Perfiles de Pacientes</li>
+              <div id="contenidoMedico"></div>
+            <li onclick="mostrarSeccion('calendario')">📅 Calendario</li>
+            <li onclick="mostrarSeccion('transferencias')">💰 Transferencias</li>
+            <li onclick="mostrarSeccion('recetas')">💊 Recetas Electrónicas</li>
+            <li onclick="mostrarSeccion('configuracion')">⚙️ Configuración</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
