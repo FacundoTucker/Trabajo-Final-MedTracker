@@ -7,22 +7,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
+    const fechaNacimiento = document.getElementById("fechaNacimiento").value.trim();
+    const tipoDocumento = document.getElementById("tipoDocumento").value.trim();
+    const numeroDocumento = document.getElementById("numeroDocumento").value.trim();
+    const domicilio = document.getElementById("domicilio").value.trim();
     const email = document.getElementById("email").value.trim();
-    const contraseña = document.getElementById("contraseña").value;
-    const contraseñaRepetida = document.getElementById("contraseñaRepetida").value;
+    const telefono = document.getElementById("telefono").value.trim();
     const matricula = document.getElementById("matricula").value.trim();
     const especialidad = document.getElementById("especialidad").value.trim();
+    const contraseña = document.getElementById("contraseña").value;
+    const contraseñaRepetida = document.getElementById("contraseñaRepetida").value;
 
-    if (!nombre || !apellido || !email || !contraseña || !contraseñaRepetida || !matricula || !especialidad) {
+    //verificamos que los campos esten completos
+    if (!nombre || !apellido || !fechaNacimiento || !tipoDocumento || !numeroDocumento || !domicilio || !email || !telefono || !matricula || !especialidad || !contraseña || !contraseñaRepetida) {
       mostrarError("Asegúrese de completar todos los campos correctamente.");
       return;
     }
 
+    //verificamos que las contraseñas coincidan
     if (contraseña !== contraseñaRepetida) {
       mostrarError("Las contraseñas no coinciden.");
       return;
     }
 
+    //verificamos que la contraseña cumpla con los requisitos
     if (!validarContraseña(contraseña)) {
       mostrarError("La contraseña debe tener al menos 7 caracteres, una mayúscula y un número.");
       return;

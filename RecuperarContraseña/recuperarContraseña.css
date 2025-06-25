@@ -87,26 +87,12 @@ button:hover {
     background-color: #008bb5;
 }
 
-.mostrarMensajeError {
+.mostrarMensaje {
     visibility: visible;
     font-size: 12px;
-    color: red;
 }
 
-.mensajeError {
+.mensaje {
     visibility: hidden;
     font-size: 12px;
 }
-
-.contenedor a {
-  font-size: 13px;
-  text-align: center;
-  color: #00acdb;
-  text-decoration: none;
-}
-
-.contenedor a:hover {
-  text-decoration: underline;
-}
-
-
