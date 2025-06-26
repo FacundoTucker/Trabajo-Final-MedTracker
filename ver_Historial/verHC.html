@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cargar Paciente por DNI</title>
-  <link rel="stylesheet" href="carga.css"> 
+  <title>Ver Historia Clinica</title>
+  <link rel="stylesheet" href="verHC.css"> 
 </head>
 <body>
   <header>
@@ -12,7 +12,7 @@
   </header>
   <div class="contenedorPrincipal">
     <div class="dniBusqueda">
-      <h2>Carga evolutivo</h2>
+      <h2>Mostrar Historia Clinica de paciente</h2>
       <label for="dniBusqueda">Ingresa un DNI registrado.</label>
       <input type="text" id="dniBusqueda" placeholder="Ej: 12345678" />
       <button id="btnCargarPaciente">Cargar Datos</button>
@@ -22,7 +22,6 @@
   <hr>
 
     <div class="contenedorDatos">
-      <h3>Información del Paciente  </h3>
       <form id="formularioPacienteCargado">
           <label for="nombreCargado">Nombre:</label>
           <input type="text" id="nombreCargado" readonly />
@@ -45,24 +44,17 @@
       </form>
     </div>
   <hr>
-
-  <div class="fechaCarga">
-    <h5>FECHA</h5>
-            <input type="date" id="fecha" placeholder="Ingrese la fecha de carga">
-            <h5>HORA</h5>
-            <input type="time" id="hora" placeholder="Ingrese la hora de carga"> 
-  </div>
-  <div class="contenedorEvolutivo">
-        <form id="loginForm">
-
-            <h5>EVOLUTIVO</h5>
-<textarea id="evolutivo" placeholder="Ingrese el evolutivo del paciente"></textarea>
-            <button>GRABAR</button> 
-        </form>
-    </div>
-</div>
+        <div class="evolutivo">
+          <div class="fechaHora">📅 2025-06-18 | 🕐 10:30</div>
+          <p class="texto">Paciente omalgia postraumatica. Se indica rnm, fkt, reposo y aines.</p>
+        </div>
+        <div class="evolutivo">
+          <div class="fechaHora">📅 2025-06-15 | 🕐 14:10</div>
+          <p class="texto">Control pop ok, herida seca. Buena evolución.</p>
+        </div>
+      </div>
 <hr>
 
-<script src="carga.js"></script> 
+<script src="verHC.js"></script> 
 </body>
 </html>
