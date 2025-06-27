@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const domicilio = document.getElementById("domicilio").value.trim();
     const email = document.getElementById("email").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
-    const contraseña = document.getElementById("contraseña").value;
-    const contraseñaRepetida = document.getElementById("contraseñaRepetida").value;
+    const contraseña = document.getElementById("contraseña").value.trim();
+    const contraseñaRepetida = document.getElementById("contraseñaRepetida").value.trim();
 
     //verificamos que los campos esten completos
     if (!nombre || !apellido || !fechaNacimiento || !tipoDocumento || !numeroDocumento || !domicilio || !email || !telefono || !contraseña || !contraseñaRepetida) {
@@ -37,10 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const nuevoPaciente = {
       nombre,
       apellido,
-      dni,
+      numeroDocumento,
       fechaNacimiento,
       email,
       telefono,
+      domicilio,
     };
     const pacientesGuardadosRaw = localStorage.getItem("pacientesDePrueba");
     const pacientes = pacientesGuardadosRaw ? JSON.parse(pacientesGuardadosRaw) : [];
