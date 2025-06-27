@@ -27,5 +27,5 @@ Historias de usuario:
 https://trello.com/b/boPnQxnI/medtraker
 
 Diagrama de flujo general del sistema:
-//a agregar
+https://lucid.app/lucidchart/1dbb9176-aee1-4c96-970f-d1932d0cf279/edit?viewport_loc=-748%2C288%2C3260%2C1437%2C0_0&invitationId=inv_2490cee1-2fc2-4e98-b494-17841ddf2246
 
