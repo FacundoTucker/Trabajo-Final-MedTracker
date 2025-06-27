@@ -1,8 +1,31 @@
-# Trabajo-Final-MedTracker
+-- MedTracker - Sistema de Gestión Clínica --
 
-Link de la documentacion:
-https://drive.google.com/drive/u/0/folders/1f-FY1thR0eMQLueNE-NmlDh8-ORKaqAW
+MedTracker es una plataforma web desarrollada para optimizar la gestión de turnos médicos y el seguimiento del historial clínico de pacientes. Está diseñada para clínicas, consultorios y profesionales de la salud que requieren una herramienta clara y eficiente para administrar sus actividades diarias.
 
-Sobre MedTracker:
-Es una plataforma útil para clínicas de todos los tamaños, desde grandes equipos hasta profesionales independientes. El paquete de funciones incluye proceso de admisión de pacientes, gestionar horarios, realizar notas y formularios personalizados, recordatorios de citas gratuitos a los pacientes, facturación, telesalud y mucho más.
-El objetivo que nos planteamos es desarrollar una Plataforma Web donde los profesionales puedan presentar sus servicios, aceptar citas y pagos, enviar recordatorios de reservar, desarrollar informes médicos, con información organizada y accesible en cualquier momento (cada uno con sus correspondientes permisos), realizar recetas electrónicas. Y los pacientes pueden gestionar citas, visualizar y descagar su Historial Médico y recetas electrónicas.
+-- Funcionalidades principales --
+El sistema permite el registro e inicio de sesión diferenciados para pacientes y especialistas. Cada tipo de usuario cuenta con funcionalidades específicas y acceso restringido según su rol.
+
+Los pacientes, una vez registrados, pueden solicitar turnos, modificarlos, cancelarlos y visualizar sus turnos próximos. También tienen acceso a su historial clínico, el cual se va actualizando en función de las consultas médicas recibidas.
+
+Los especialistas pueden consultar su agenda diaria o semanal, atender pacientes según los turnos asignados, cancelar o modificar turnos, y cargar observaciones en el historial clínico de cada paciente.
+
+El sistema incorpora validaciones en formularios, control de sesiones y mecanismos básicos de seguridad para proteger los datos sensibles.
+
+-- Tecnologías utilizadas --
+El desarrollo del sistema está construida con HTML, CSS y JavaScript. Para persistencia de datos en modo local se emplea LocalStorage, con posibilidad de integración a futuro con un backend basado en Node.js o NestJS y bases de datos como MongoDB o MySQL.
+
+-- Casos de uso --
+Un paciente puede registrarse, iniciar sesión, gestionar sus turnos y acceder a su historial clínico. Un especialista puede registrarse, revisar su agenda, gestionar turnos, y registrar información clínica correspondiente a cada paciente atendido.
+
+-- Futuras mejoras --
+Se contempla la incorporación de una base de datos externa para almacenamiento persistente, un sistema de notificaciones por correo electrónico, soporte para subir archivos adjuntos (como estudios o recetas), diseño adaptativo para dispositivos móviles y un panel administrativo para supervisión general del sistema.
+
+-- Documentación adicional --
+A continuación se pueden consultar los documentos que acompañan al desarrollo del sistema:
+
+Historias de usuario:
+https://trello.com/b/boPnQxnI/medtraker
+
+Diagrama de flujo general del sistema:
+//a agregar
+
