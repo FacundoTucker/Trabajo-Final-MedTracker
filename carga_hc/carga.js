@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const dniCargado = document.getElementById("dniCargado");
   const fechaNacimientoCargada = document.getElementById("fechaNacimientoCargada");
   const telefonoCargado = document.getElementById("telefonoCargado");
+  const domicilioCargado = document.getElementById("domicilioCargado");
+
 
   // Función para mostrar mensajes de estado
   function mostrarMensaje(mensaje, tipo) {
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dniCargado.value = '';
     fechaNacimientoCargada.value = '';
     telefonoCargado.value = '';
+    domicilioCargado.value = '';
   }
 
   // Evento al hacer clic en el botón "Cargar Datos"
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const pacientesGuardadosRaw = localStorage.getItem("pacientesDePrueba");
-
+    
     if (!pacientesGuardadosRaw) {
       mostrarMensaje("No hay datos de pacientes guardados localmente.", "error");
       limpiarCamposCargados();
@@ -47,16 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pacientes = JSON.parse(pacientesGuardadosRaw);
     // Buscar el paciente por DNI
-    const pacienteEncontrado = pacientes.find(p => p.dni === dniBuscado);
+    const pacienteEncontrado = pacientes.find(p => p.numeroDocumento === dniBuscado);
 
     if (pacienteEncontrado) {
       // Rellenar los campos del formulario con los datos del paciente
       nombreCargado.value = pacienteEncontrado.nombre;
       apellidoCargado.value = pacienteEncontrado.apellido;
-      dniCargado.value = pacienteEncontrado.dni;
+      dniCargado.value = pacienteEncontrado.numeroDocumento;
       fechaNacimientoCargada.value = pacienteEncontrado.fechaNacimiento;
       telefonoCargado.value = pacienteEncontrado.telefono;
-
+      domicilioCargado.value = pacienteEncontrado.domicilio;
+      
       mostrarMensaje(`Datos de "${pacienteEncontrado.nombre} ${pacienteEncontrado.apellido}" cargados.`, "exito");
     } else {
       mostrarMensaje(`No se encontró ningún paciente con DNI: ${dniBuscado}`, "error");
