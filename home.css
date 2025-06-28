@@ -22,7 +22,14 @@ header {
     
 }
 
-.a {
+.inicio {
+    display: flex;
+    justify-content: end;
+    height: 45px;
+    width: 380px;
+}
+
+.a{
     font-size: 32px;
     font-weight: bold;
     text-decoration: none;
@@ -48,6 +55,19 @@ button:hover {
     background-color: #008bb5;
 }
 
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+}
+
+.titulo{
+    color: #000000;
+}
+
+/*
 .contenedor {
     background-color: white;
     flex-direction: row;
@@ -59,8 +79,17 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
+*/
+footer{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
 
-
+.footer a{
+    background-color: beige;
+}
 
 
 
