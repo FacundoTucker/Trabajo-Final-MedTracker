@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const fechaNacimientoCargada = document.getElementById("fechaNacimientoCargada");
   const telefonoCargado = document.getElementById("telefonoCargado");
   const domicilioCargado = document.getElementById("domicilioCargado");
+  const enlaceIndicaciones = document.getElementById("indicacionMedica");
+  
 
   // Función para mostrar mensajes de estado
   function mostrarMensaje(mensaje, tipo) {
@@ -27,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fechaNacimientoCargada.value = '';
     telefonoCargado.value = '';
     domicilioCargado.value = '';
+    if (enlaceIndicaciones) enlaceIndicaciones.href = "#";
+
   }
 
   // Evento al hacer clic en el botón "Cargar Datos"
@@ -59,11 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
       fechaNacimientoCargada.value = pacienteEncontrado.fechaNacimiento;
       telefonoCargado.value = pacienteEncontrado.telefono;
       domicilioCargado.value = pacienteEncontrado.domicilio;
-
+      if (enlaceIndicaciones) {
+              enlaceIndicaciones.href = `/indicacionMedica/indicacionMedica.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
+            };
       mostrarMensaje(`Datos de "${pacienteEncontrado.nombre} ${pacienteEncontrado.apellido}" cargados.`, "exito");
+      
     } else {
       mostrarMensaje(`No se encontró ningún paciente con DNI: ${dniBuscado}`, "error");
       limpiarCamposCargados(); // Limpia los campos si no se encuentra
     }
   });
-});
+  
+  
+
+})
