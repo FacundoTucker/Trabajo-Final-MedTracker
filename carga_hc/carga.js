@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const fechaNacimientoCargada = document.getElementById("fechaNacimientoCargada");
   const telefonoCargado = document.getElementById("telefonoCargado");
   const domicilioCargado = document.getElementById("domicilioCargado");
+  const enlaceIndicaciones = document.getElementById("indicacionMedica");
+  const enlaceEvolutivos = document.getElementById("verEvolutivos");
 
 
   // Función para mostrar mensajes de estado
@@ -28,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fechaNacimientoCargada.value = '';
     telefonoCargado.value = '';
     domicilioCargado.value = '';
+    if (enlaceIndicaciones) enlaceIndicaciones.href = "#";
+    if (enlaceEvolutivos) enlaceEvolutivos.href = "#";
   }
 
   // Evento al hacer clic en el botón "Cargar Datos"
@@ -60,7 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
       fechaNacimientoCargada.value = pacienteEncontrado.fechaNacimiento;
       telefonoCargado.value = pacienteEncontrado.telefono;
       domicilioCargado.value = pacienteEncontrado.domicilio;
-      
+      if (enlaceIndicaciones) {
+      enlaceIndicaciones.href = `/indicacionMedica/indicacionMedica.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
+      };
+      if (enlaceEvolutivos) {
+      enlaceEvolutivos.href = `/ver_Historial/verHC.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
+      };
       mostrarMensaje(`Datos de "${pacienteEncontrado.nombre} ${pacienteEncontrado.apellido}" cargados.`, "exito");
     } else {
       mostrarMensaje(`No se encontró ningún paciente con DNI: ${dniBuscado}`, "error");
@@ -68,3 +77,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+ 
