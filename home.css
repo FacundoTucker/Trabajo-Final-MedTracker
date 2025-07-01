@@ -5,27 +5,31 @@
   font-family: 'Segoe UI', sans-serif;
 }
   body {
-  background:#fdfdfd url('../img/fondo.jpg') center/cover fixed no-repeat;
+  background:url("img/fondo.jpg") center/cover fixed no-repeat;
   min-height:100vh;
 }
 
 /* --- HEADER --- */
 header {
   height:90px;
+  width: 100%;
   display:flex;
   justify-content: flex-start;
   justify-content:space-between;
   align-items:center;
   padding:0 1.8rem;
-  background:rgba(255,255,255,.95);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-bottom:1px solid #e3e3e3;
 }
 
-.logo h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #0077c2; 
-  text-decoration: none;
+.medTracker {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #00acdb;
+    font-family: 'Arial Black', sans-serif;
+    padding-left: 21px;
 }
 
 button{
