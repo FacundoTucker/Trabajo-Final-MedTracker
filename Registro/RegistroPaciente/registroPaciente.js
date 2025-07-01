@@ -34,14 +34,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //traer array pacientes o crear uno vacio
     const pacientesGuardados = JSON.parse(localStorage.getItem("pacientesDePrueba")) || [];
+    const especialistasGuardados = JSON.parse(localStorage.getItem("especialistasDePrueba")) || [];
 
     //validar que no exista paciente con el mismo email o documento
-    const existe = pacientesGuardados.some(p =>
+    const existePaciente = pacientesGuardados.some(p =>
       p.email.toLowerCase() === email.toLowerCase() || p.numeroDocumento === numeroDocumento
     );
 
-    if (existe) {
-      mostrarError("Ya existe un paciente con ese email o documento.");
+    const existeEspecialista = especialistasGuardados.some(e =>
+      e.email.toLowerCase() === email.toLowerCase() || e.numeroDocumento === numeroDocumento
+    );
+
+    if (existeEspecialista || existePaciente) {
+      mostrarError("Ya existe un usuario con ese email o documento.");
       return;
     }
 
