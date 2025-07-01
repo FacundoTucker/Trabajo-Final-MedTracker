@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <a href="#" class="medTracker">MEDTRACKER</a>
+    <a href="../../home.html" class="medTracker">MEDTRACKER</a>
   </header>
 
   <div class="contenedor">
@@ -18,39 +18,39 @@
       <h2>REGISTRO DE ESPECIALISTA</h2>
       <form id="registroEspecialistaForm">
         <label>NOMBRE</label>
-        <input type="text" id="nombre"/>
+        <input type="text" id="nombre" />
         <label>APELLIDO</label>
-        <input type="text" id="apellido"/>
+        <input type="text" id="apellido" />
         <label>FECHA DE NACIMIENTO</label>
         <input type="date" id="fechaNacimiento">
-        <label>TIPO Y N° DE DOCUMENTO</label>
+        <label>TIPO Y Nº DE DOCUMENTO</label>
         <div class="documentoContainer">
           <select id="tipoDocumento" name="tipoDocumento">
-          <option value="">Seleccionar tipo</option>
-          <option value="dni">DNI</option>
-          <option value="libretaCivica">Libreta Cívica</option>
-          <option value="libretaEnrolamiento">Libreta de Enrolamiento</option>
-          <option value="cedulaIdentidad">Cédula de Identidad</option>
-          <option value="cedulaMercosur">Cédula del Mercosur</option>
-          <option value="pasaporte">Pasaporte</option>
-          <option value="ciExtranjera">C.I Extranjera</option>
+            <option value="">Seleccionar tipo</option>
+            <option value="dni">DNI</option>
+            <option value="libretaCivica">Libreta Cívica</option>
+            <option value="libretaEnrolamiento">Libreta de Enrolamiento</option>
+            <option value="cedulaIdentidad">Cédula de Identidad</option>
+            <option value="cedulaMercosur">Cédula del Mercosur</option>
+            <option value="pasaporte">Pasaporte</option>
+            <option value="ciExtranjera">C.I Extranjera</option>
           </select>
-          <input type="text" id="numeroDocumento"/>
+          <input type="text" id="numeroDocumento" />
         </div>
         <label>DOMICILIO</label>
         <input type="text" id="domicilio">
         <label>CORREO ELECTRÓNICO</label>
-        <input type="email" id="email"/>
-        <label>N° DE TELÉFONO</label>
+        <input type="email" id="email" />
+        <label>Nº DE TELÉFONO</label>
         <input type="tel" id="telefono">
-        <label>N° DE MATRÍCULA</label>
-        <input type="text" id="matricula"/>
+        <label>Nº DE MATRÍCULA</label>
+        <input type="text" id="matricula" />
         <label>ESPECIALIDAD</label>
-        <input type="text" id="especialidad"/>
+        <input type="text" id="especialidad" />
         <label>CONTRASEÑA</label>
-        <input type="password" id="contraseña"/>
+        <input type="password" id="contraseña" />
         <label>REPETIR CONTRASEÑA</label>
-        <input type="password" id="contraseñaRepetida"/>
+        <input type="password" id="contraseñaRepetida" />
 
         <p id="mensajeEspecialista" class="mensajeError">mensajeError</p>
         <a href="../../Login/login.html">¿Ya tienes una cuenta? Inicia sesión.</a>
@@ -62,6 +62,7 @@
       <img src="../../img/registroEspecialista.avif" alt="Imagen especialista" />
     </div>
   </div>
+
+  <script src="registroEspecialista.js"></script>
 </body>
-<script src="registroEspecialista.js"></script>
 </html>

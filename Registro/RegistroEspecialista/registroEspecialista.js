@@ -18,50 +18,72 @@ document.addEventListener("DOMContentLoaded", () => {
     const contraseña = document.getElementById("contraseña").value;
     const contraseñaRepetida = document.getElementById("contraseñaRepetida").value;
 
-    //verificamos que los campos esten completos
+    //verificar que todos los campos esten completos
     if (!nombre || !apellido || !fechaNacimiento || !tipoDocumento || !numeroDocumento || !domicilio || !email || !telefono || !matricula || !especialidad || !contraseña || !contraseñaRepetida) {
       mostrarError("Asegúrese de completar todos los campos correctamente.");
       return;
     }
 
-    //verificamos que las contraseñas coincidan
+    //verificar que las contraseñas coincidan
     if (contraseña !== contraseñaRepetida) {
       mostrarError("Las contraseñas no coinciden.");
       return;
     }
 
-    //verificamos que la contraseña cumpla con los requisitos
+    //verificar que la contraseña cumpla con los requisitos
     if (!validarContraseña(contraseña)) {
       mostrarError("La contraseña debe tener al menos 7 caracteres, una mayúscula y un número.");
       return;
     }
 
-    alert("Registro exitoso!"); //me dirigira a la seccion correspondiente una vez este
+    //cargar especialistas guardados o hacer un array vacio
+    const especialistasGuardados = JSON.parse(localStorage.getItem("especialistasDePrueba")) || [];
+
+    //validar que no exista especialista con el mismo email o documento
+    const existe = especialistasGuardados.some(e =>
+      e.email === email || e.numeroDocumento === numeroDocumento
+    );
+
+    if (existe) {
+      mostrarError("Ya existe un especialista con ese email o documento.");
+      return;
+    }
+
+    //crear nuevo especialista
+    const nuevoEspecialista = {
+      nombre,
+      apellido,
+      fechaNacimiento,
+      tipoDocumento,
+      numeroDocumento,
+      domicilio,
+      email,
+      telefono,
+      matricula,
+      especialidad,
+      contraseña
+    };
+
+    //guardar nuevo especialista en localStorage
+    especialistasGuardados.push(nuevoEspecialista);
+    localStorage.setItem("especialistasDePrueba", JSON.stringify(especialistasGuardados));
+
+    alert("✔ Registro exitoso.");
     form.reset();
+
+    window.location.href = "../../Login/login.html";
   });
 
   function mostrarError(mensaje) {
     mensajeError.textContent = mensaje;
-    mensajeError.classList.remove("mensajeError")
+    mensajeError.classList.remove("mensajeError");
     mensajeError.classList.add("mostrarMensajeError");
   }
 
-  function validarContraseña(contraseña) {
-    if (contraseña.length < 7) return false;
-
-    let tieneMayuscula = false;
-    let tieneNumero = false;
-
-    //logica para verificar una contraseña completa
-    for (let i = 0; i < contraseña.length; i++) {
-      const char = contraseña[i];
-      if (!isNaN(char)) {
-        tieneNumero = true;
-      } else if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
-        tieneMayuscula = true;
-      }
-    }
-
+  function validarContraseña(pass) {
+    if (pass.length < 7) return false;
+    const tieneMayuscula = /[A-Z]/.test(pass);
+    const tieneNumero = /\d/.test(pass);
     return tieneMayuscula && tieneNumero;
   }
 });

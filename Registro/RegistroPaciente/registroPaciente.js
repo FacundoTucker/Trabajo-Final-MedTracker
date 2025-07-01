@@ -16,64 +16,66 @@ document.addEventListener("DOMContentLoaded", () => {
     const contraseña = document.getElementById("contraseña").value.trim();
     const contraseñaRepetida = document.getElementById("contraseñaRepetida").value.trim();
 
-    //verificamos que los campos esten completos
+    //validaciones basicas
     if (!nombre || !apellido || !fechaNacimiento || !tipoDocumento || !numeroDocumento || !domicilio || !email || !telefono || !contraseña || !contraseñaRepetida) {
-      mostrarError("Asegúrese de completar todos los campos correctamente.");
+      mostrarError("Asegúrese de completar todos los campos.");
       return;
     }
 
-    //verificamos que las contraseñas coincidan
     if (contraseña !== contraseñaRepetida) {
       mostrarError("Las contraseñas no coinciden.");
       return;
     }
 
-    //verificamos que la contraseña cumpla con los requisitos
     if (!validarContraseña(contraseña)) {
       mostrarError("La contraseña debe tener al menos 7 caracteres, una mayúscula y un número.");
       return;
     }
-        // Guardar paciente en localStorage (solo para pruebas)
+
+    //traer array pacientes o crear uno vacio
+    const pacientesGuardados = JSON.parse(localStorage.getItem("pacientesDePrueba")) || [];
+
+    //validar que no exista paciente con el mismo email o documento
+    const existe = pacientesGuardados.some(p =>
+      p.email.toLowerCase() === email.toLowerCase() || p.numeroDocumento === numeroDocumento
+    );
+
+    if (existe) {
+      mostrarError("Ya existe un paciente con ese email o documento.");
+      return;
+    }
+
     const nuevoPaciente = {
       nombre,
       apellido,
-      numeroDocumento,
       fechaNacimiento,
+      tipoDocumento,
+      numeroDocumento,
+      domicilio,
       email,
       telefono,
-      domicilio,
+      contraseña
     };
-    const pacientesGuardadosRaw = localStorage.getItem("pacientesDePrueba");
-    const pacientes = pacientesGuardadosRaw ? JSON.parse(pacientesGuardadosRaw) : [];
 
-    pacientes.push(nuevoPaciente);
-    localStorage.setItem("pacientesDePrueba", JSON.stringify(pacientes));
-    alert("Registro exitoso!"); //me dirigira a la seccion correspondiente una vez este
+    pacientesGuardados.push(nuevoPaciente);
+    localStorage.setItem("pacientesDePrueba", JSON.stringify(pacientesGuardados));
+
+    alert("✔ Registro exitoso.");
     form.reset();
+    //nos movemos al login
+    window.location.href = "../../Login/login.html";
   });
 
   function mostrarError(mensaje) {
     mensajeError.textContent = mensaje;
-    mensajeError.classList.remove("mensajeError")
+    mensajeError.classList.remove("mensajeError");
     mensajeError.classList.add("mostrarMensajeError");
   }
 
-  function validarContraseña(contraseña) {
-    if (contraseña.length < 7) return false;
-
-    let tieneMayuscula = false;
-    let tieneNumero = false;
-
-    //logica para verificar una contraseña completa
-    for (let i = 0; i < contraseña.length; i++) {
-      const char = contraseña[i];
-      if (!isNaN(char)) {
-        tieneNumero = true;
-      } else if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
-        tieneMayuscula = true;
-      }
-    }
-
+  function validarContraseña(pass) {
+    if (pass.length < 7) return false;
+    const tieneMayuscula = /[A-Z]/.test(pass);
+    const tieneNumero = /\d/.test(pass);
     return tieneMayuscula && tieneNumero;
   }
 });

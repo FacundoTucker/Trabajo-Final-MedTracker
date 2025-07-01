@@ -1,0 +1,65 @@
+table {
+  width: 95%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: white;
+  font-size: 12px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+  width: 80px;
+  min-width: 60px;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-size: 13px;
+}
+
+.disponible {
+  background-color: #00acdb;
+  color: white;
+}
+
+.reservadoOtro {
+  background-color: #c6f7c3;
+  color: gray;
+}
+
+.reservadoPaciente {
+  background-color: #c6f7c3;
+  color: black;
+}
+
+.btn-turno {
+  background-color: white;
+  color: #00acdb;
+  border: 1px solid #00acdb;
+  padding: 3px 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-turno:hover {
+  background-color: #00acdb;
+  color: white;
+}
+
+.btn-turno:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  border: none;
+  cursor: not-allowed;
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+
+
