@@ -1,67 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loguin</title>
-    <link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> MedTracker- Home</title>
+    <link rel="stylesheet" href="home.css" />
 </head>
+
 <body>
-    
-    <header> 
-        <div class="logo"> 
-            <h1>MedTracker</h1>
+    <header>
+        <h1 class="logo">MedTracker</h1>
         </div>
-        <div class="inicio"> 
-         <a href="" class="a"> <button>INICIAR SESIÓN</button> </a>
-         <a href="" class="a"> <button>REGISTRARSE</button>  </a>
-         <a href="contacto/contacto.html" class="a"> <button>CONTACTO</button> 
+        <!-- BOTONES CON REDIRECCION -->
+        <div class="acciones-header">
+            <button id="btn-login">INICIAR SESIÓN</button>
+            <div class="dropdown">
+                <button id="btn-register">REGISTRARSE ▼</button>
+                <div id="dropdown-menu" class="dropdown-menu hidden">
+                    <button id="reg-paciente">Paciente</button>
+                    <button id="reg-especialista">Especialista</button>
+                </div>
+            </div>
         </div>
     </header>
 
-
-    <div class="contenedor">
+    <main class="contenedor">
         <div class="titulo">
-        <h1>medTracker</h1>
         </div>
-    <div class="contenedorUno">
-        <img src="medicos y pacientes.jpg" alt="Imagen de medicos" width="760">
-        <h2> Plataforma útil para clínicas de todos los
-            tamaños, desde grandes equipos hasta profesionales
-            independientes. El paquete de funciones incluye
-            proceso de admisión de pacientes, gestionar horarios,
-            
-            realizar notas y formularios personalizados,
-            recordatorios de citas gratuitos a los pacientes,
-            
-            facturación, telesalud y mucho más. </h2>
+
+        <div class="contenedorUno">
+            <img src="medicos y pacientes.jpg" alt="Imagen de medicos" width="760" />
+            <h2>
+                Plataforma útil para clínicas de todos los tamaños, desde grandes equipos hasta profesionales
+                independientes.
+                El paquete de funciones incluye proceso de admisión de pacientes, gestionar horarios, realizar notas y
+                formularios personalizados, recordatorios de citas gratuitos a los pacientes, facturación, telesalud y
+                mucho más.
+            </h2>
         </div>
+
         <div class="contenedorDos">
-        <img src="casa y medicina.jpg" alt="casa y medicina" width="500">
+            <img src="casa y medicina.jpg" alt="casa y medicina" width="500" />
+            <h3>
+                Hacemos que los datos médicos sean fáciles de acceder y comprender para los profesionales de la salud y
+                los pacientes, contribuyendo a una atención más eficiente y personalizada.
+                <strong>¡Confianza!</strong> Fomentamos relaciones basadas en la confianza entre pacientes y proveedores
+                de salud, ofreciendo una plataforma que respeta la privacidad y los derechos de los usuarios.
+            </h3>
+        </div>
+    </main>
 
-        <h3>Hacemos que los
-            datos médicos sean fáciles de
-            acceder y comprender para los
-            profesionales de la salud y los
-            pacientes, contribuyendo a una
-            atención más eficiente y
-            personalizada.
-           <strong>Confianza!</strong>
-            Fomentamos relaciones
-            basadas en la confianza entre
-            pacientes y proveedores de salud,
-            ofreciendo una plataforma que
-            respeta la privacidad y los derechos
-            de los usuarios. </h3>
-        
-        <h3> </h3>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Acerca de -->
+            <section class="footer-section about">
+                <h4>MedTracker</h4>
+                <p>Software de gestión médica pensado para clínicas, profesionales y pacientes.</p>
+            </section>
 
-    </div>
-    </div>
+            <!-- Navegación rápida -->
+            <section class="footer-section links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="contacto/contacto.html">Contacto</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </section>
 
-    <footer>
-        <a href=""> Si tienes alguna duda, no olvides contactarnos!</a>
+            <!-- Contacto -->
+            <section class="footer-section contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> info@medtracker.com</p>
+                <p><i class="fas fa-phone"></i> +54 9 11 1234‑5678</p>
+            </section>
+
+            <!-- Redes -->
+            <section class="footer-section social">
+                <h4>Seguinos</h4>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </section>
+        </div>
+
+        <div class="footer-copy">
+            © 2025 MedTracker. Todos los derechos reservados.
+        </div>
     </footer>
+
+
+    <script src="home.js"></script>
 </body>
-<script src="home.js"></script>
+
 </html>
