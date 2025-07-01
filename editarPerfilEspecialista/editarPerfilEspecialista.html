@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Perfil Especialistas</title>
+  <link rel="stylesheet" href="editarPerfilEspecialista.css">
+</head>
+
+<body>
+  <header>
+    <a href="../home.html" class="medTracker">MEDTRACKER</a>
+  </header>
+
+  <div class="contenedor">
+    <div class="contenedorForm">
+      <h2>Editar Perfil</h2>
+      <form id="editarPerfilForm">
+        <label>NOMBRE</label>
+        <input type="text" id="nombre" />
+        <label>APELLIDO</label>
+        <input type="text" id="apellido" />
+        <label>FECHA DE NACIMIENTO</label>
+        <input type="date" id="fechaNacimiento">
+        <label>TIPO Y Nº DE DOCUMENTO</label>
+        <div class="documentoContainer">
+          <select id="tipoDocumento" name="tipoDocumento">
+            <option value="">Seleccionar tipo</option>
+            <option value="dni">DNI</option>
+            <option value="libretaCivica">Libreta Cívica</option>
+            <option value="libretaEnrolamiento">Libreta de Enrolamiento</option>
+            <option value="cedulaIdentidad">Cédula de Identidad</option>
+            <option value="cedulaMercosur">Cédula del Mercosur</option>
+            <option value="pasaporte">Pasaporte</option>
+            <option value="ciExtranjera">C.I Extranjera</option>
+          </select>
+          <input type="text" id="numeroDocumento" />
+        </div>
+        <label>DOMICILIO</label>
+        <input type="text" id="domicilio">
+        <label>CORREO ELECTRÓNICO</label>
+        <input type="email" id="email" />
+        <label>Nº DE TELÉFONO</label>
+        <input type="tel" id="telefono">
+        <label>Nº DE MATRÍCULA</label>
+        <input type="text" id="matricula" />
+        <label>ESPECIALIDAD</label>
+        <input type="text" id="especialidad" />
+
+        <p id="mensajeConfirmacion" class="mensajeError"></p>
+        <button type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+
+    <div class="imagenLateral">
+      <img src="../img/registroEspecialista.avif" alt="Imagen especialista" />
+    </div>
+  </div>
+
+  <script src="editarPerfilEspecialista.js"></script>
+</body>
+</html>
