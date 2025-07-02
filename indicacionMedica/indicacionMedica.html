@@ -11,40 +11,25 @@
     <a href="#" class="medTracker">MEDTRACKER</a>
   </header>
   <div class="contenedorPrincipal">
-    <hr>
+    <div class="recetario">  
+      <div class="contenedorDatos">
+        <form id="formularioPacienteCargado">
+            <label for="nombreCompleto">Nombre y apellido:</label>
+            <input type="text" id="nombreCompleto" readonly />
 
-    <div class="contenedorDatos">
-      <form id="formularioPacienteCargado">
-          <label for="nombreCargado">Nombre:</label>
-          <input type="text" id="nombreCargado" readonly />
-
-          <label for="apellidoCargado">Apellido:</label>
-          <input type="text" id="apellidoCargado" readonly />
-
-          <label for="dniCargado">DNI:</label>
-          <input type="text" id="dniCargado" readonly />
-          
-          <label for="fechaNacimientoCargada">Fecha de Nacimiento:</label>
-          <input type="date" id="fechaNacimientoCargada" readonly />
-
-          <label for="telefonoCargado">N° de Teléfono:</label>
-          <input type="tel" id="telefonoCargado" readonly />
-          
-          <label for="domicilioCargado">Domicilio:</label>
-          <input type="text" id="domicilioCargado" readonly />
-      </form>
-    </div>
-  <hr>
-  <div class="contenedorEvolutivo">
-        <form id="loginForm">
-
-            <h5>Generar indicacion</h5>
-<textarea id="evolutivo" placeholder="Ingrese el evolutivo del paciente"></textarea>
-            <button>GRABAR</button> 
+            <label for="dniCargado">DNI:</label>
+            <input type="text" id="dniCargado" readonly />
+            
+            <label for="domicilioCargado">Domicilio:</label>
+            <input type="text" id="domicilioCargado" readonly />
         </form>
+      </div>
+    <div class="contenedorIndicacion" >
+      <textarea id="indicacion" placeholder="Ingrese indicación"></textarea>
     </div>
+  </div>
+  <button>GUARDAR INDICACIÓN</button>
 </div>
-<hr>
 
 <script src="indicacionMedica.js"></script> 
 </body>
