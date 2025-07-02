@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cargar datos en los campos
   document.getElementById("nombreCompleto").value = `${paciente.nombre} ${paciente.apellido}`;
   document.getElementById("dniCargado").value = paciente.numeroDocumento;
-  document.getElementById("fechaNacimientoCargada").value = paciente.fechaNacimiento;
-  document.getElementById("telefonoCargado").value = paciente.telefono;
   document.getElementById("domicilioCargado").value = paciente.domicilio;
 
 });
