@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ver Historia Clinica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../styles/home.css">
+</head>
+
+<body class="verHC">
+  <header>
+    <h1 class="logo">MedTracker</h1>
+    <button class="btn" id="btnBuscar">Volver al inicio</button>
+  </header>
+
+  <div class="contenedorPrincipalVerHC">
+    <div class="dniBusqueda">
+      <h2>Mostrar Historia Clinica de paciente</h2>
+      <label for="dniBusqueda">Ingresa un DNI registrado.</label>
+      <input type="text" id="dniBusqueda" placeholder="Ej: 12345678" />
+      <button id="btnCargarPaciente">Cargar Datos</button>
+      <div id="mensajeCarga" class="mensajeEstadoVerHC"></div>
+
+    </div>
+    <hr>
+
+    <div class="contenedorDatosVerHC">
+      <form id="formularioPacienteCargadoVerHC">
+        <label for="nombreCargado">Nombre:</label>
+        <input type="text" id="nombreCargado" readonly />
+
+        <label for="apellidoCargado">Apellido:</label>
+        <input type="text" id="apellidoCargado" readonly />
+
+        <label for="dniCargado">DNI:</label>
+        <input type="text" id="dniCargado" readonly />
+
+        <label for="fechaNacimientoCargada">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimientoCargada" readonly />
+
+        <label for="telefonoCargado">N° de Teléfono:</label>
+        <input type="tel" id="telefonoCargado" readonly />
+
+        <label for="domicilioCargado">Domicilio:</label>
+        <input type="text" id="domicilioCargado" readonly />
+
+        <div class="historiaGuardadaVerHC">
+          <a href="#" id="verEstudios">📄 Ver estudios </a>
+          <a href="/carga_hc/carga.html" id="carga_hc">📝 Volver a Carga de Evolutivos</a>
+          <a href="#" id="indicacionMedica">📝 Indicaciones medicas | Recetas</a>
+        </div>
+      </form>
+
+    </div>
+    <hr>
+    <div class="evolutivoVerHC">
+      <div class="fechaHora">📅 2025-06-18 | 🕐 10:30</div>
+      <p class="texto">Paciente omalgia postraumatica. Se indica rnm, fkt, reposo y aines.</p>
+    </div>
+    <div class="evolutivoVerHC">
+      <div class="fechaHora">📅 2025-06-15 | 🕐 14:10</div>
+      <p class="texto">Control pop ok, herida seca. Buena evolución.</p>
+    </div>
+  </div>
+  <hr>
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section about">
+        <h4>MedTracker</h4>
+        <p>Software de gestión médica pensado para clínicas, profesionales y pacientes.</p>
+      </section>
+      <section class="footer-section links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="contacto/contacto.html">Contacto</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </section>
+      <section class="footer-section contact">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-envelope"></i> info@medtracker.com</p>
+        <p><i class="fas fa-phone"></i> +54 9 11 1234-5678</p>
+      </section>
+      <section class="footer-section social">
+        <h4>Seguinos</h4>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </section>
+    </div>
+    <div class="footer-copy">
+      © 2025 MedTracker. Todos los derechos reservados.
+    </div>
+  </footer>
+  <script src="../js/verHC.js"></script>
+</body>
+
+</html>

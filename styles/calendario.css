@@ -1,0 +1,203 @@
+/* Reset y fuente */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #fdfdfd url('../img/fondo.jpg') center/cover fixed no-repeat;
+  min-height: 100vh;
+}
+
+/* --- HEADER --- */
+header {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.8rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0077c2;
+  cursor: default;
+}
+
+.acciones-header button {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  background: #00acdb;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.acciones-header button:hover {
+  background: #008bb5;
+}
+
+/* --- MAIN --- */
+main.contenedor {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Calendario */
+.calendario-semanal {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  position: relative;
+  padding: 10px;
+  max-width: 120px;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.btn-cancelar {
+  margin-top: 5px;
+  padding: 5px 8px;
+  font-size: 0.8rem;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.btn-cancelar:hover {
+  background-color: #005f99;
+}
+
+.paciente {
+  display: inline-block;
+  background: transparent;
+  border-bottom: 1px dashed #aaa;
+  cursor: text;
+  padding: 2px;
+  min-width: 60px;
+}
+
+
+th {
+  background-color: #e2ecf3;
+  font-weight: bold;
+}
+
+/* Estados de turno */
+.disponible {
+  background-color: #e9f7ef;
+}
+
+.reservado {
+  background-color: #fce4ec;
+}
+
+/* Botones en celdas */
+button {
+  margin: 4px 2px 0 0;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: #007acc;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005f99;
+}
+
+/* --- FOOTER --- */
+footer.footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  padding-top: 2.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.footer-section h4 {
+  margin-bottom: 0.7rem;
+  font-size: 1.15rem;
+  color: #00acdb;
+}
+
+.footer-section p,
+.footer-section ul {
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-section ul li a:hover {
+  opacity: 0.75;
+}
+
+.footer-section.social a {
+  font-size: 1.3rem;
+  margin-right: 0.8rem;
+  color: #f5f5f5;
+  transition: transform 0.3s;
+}
+
+.footer-section.social a:hover {
+  transform: scale(1.15);
+}
+
+.footer-copy {
+  background-color: rgba(0, 0, 0, 0.92);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+}

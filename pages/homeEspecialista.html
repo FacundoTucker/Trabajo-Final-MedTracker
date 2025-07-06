@@ -1,0 +1,111 @@
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Especialista – MedTracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <a href="calendario.html"><i class="fa-solid fa-calendar-week"></i><span>Agenda semanal</span></a>
+    <a href="pacientes.html"><i class="fa-solid fa-user-group"></i><span>Pacientes</span></a>
+    <a href="carga.html"><i class="fa-solid fa-file-medical"></i><span> Cargar Historias clínicas</span></a>
+    <a href="verHC.html"><i class="fa-solid fa-clock-rotate-left"></i><span>Ver Historias
+        clínicas</span></a>
+    <a href="recetasElectronicas.html"><i class="fa-solid fa-prescription"></i><span>Recetas electrónicas</span></a>
+    <a href="transferencias.html"><i class="fa-solid fa-people-arrows"></i><span>Transferencias</span></a>
+    <a href="indicacionMedica.html"><i class="fa-solid fa-chart-column"></i><span>Orden
+        Medica</span></a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">MedTracker</a>
+    <div class="user-menu">
+      <i class="fa-solid fa-gear" style="font-size:20px;cursor:pointer"></i>
+      <img src="../img/usuario.png" />
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="agenda-header">
+      <h2>Agenda de hoy —  07 Julio 2025</h2>
+      <div>
+        <button class="btnLeft"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="btnRight"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- Turno Atendido  -->
+    <div class="card-turno">
+      <div>
+        <strong>08:30 hs</strong> — Camila Ginter (Control)
+      </div>
+      <span class="badge" style="background:#28a745">Atendido</span>
+      <button class="btn">Ver resumen</button>
+    </div>
+
+    <!-- Turnos Pendientes -->
+    <div class="card-turno">
+      <div>
+        <strong>09:00 hs</strong> — Anita (Dolor Estomacal)
+      </div>
+      <span class="badge">Pendiente</span>
+      <button class="btn">Abrir HC</button>
+    </div>
+
+    <div class="card-turno">
+      <div>
+        <strong>09:30 hs</strong> — Marcos (Chequeo Anual)
+      </div>
+      <span class="badge">Pendiente</span>
+      <button class="btn">Abrir HC</button>
+    </div>
+
+    <div class="card-turno">
+      <div>
+        <strong>10:00hs</strong> — Daniela (Consulta General)
+      </div>
+      <span class="badge">Pendiente</span>
+      <button class="btn">Abrir HC</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section about">
+        <h4>MedTracker</h4>
+        <p>Software de gestión médica pensado para clínicas, profesionales y pacientes.</p>
+      </section>
+      <section class="footer-section links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="homeEspecialista.html">Inicio</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </section>
+      <section class="footer-section contact">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-envelope"></i> info@medtracker.com</p>
+        <p><i class="fas fa-phone"></i> +54 9 11 1234-5678</p>
+      </section>
+      <section class="footer-section social">
+        <h4>Seguinos</h4>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </section>
+    </div>
+    <div class="footer-copy">
+      © 2025 MedTracker. Todos los derechos reservados.
+    </div>
+  </footer>
+</body>
+
+</html>

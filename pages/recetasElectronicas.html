@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indicaciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+ <link rel="stylesheet" href="../styles/home.css">
+</head>
+
+<body class="recetasElectronicas">
+
+  <header>
+    <h1 class="logo">MedTracker</h1>
+    <button class="btn" id="btnBuscar">Volver al inicio</button>
+  </header>
+
+
+<main class="centrado">
+  <div class="contenedorPrincipalRecetasElectronicas">
+    <h2>Generar Receta Electrónica</h2>
+    <form id="formRecetaElectronica">
+      <label for="paciente">Paciente:</label>
+      <select id="paciente" required>
+        <option value="">Seleccione un paciente</option>
+        <option value="12345678">Camila Ginter</option>
+        <option value="23456789">Juan Pérez</option>
+      </select>
+
+      <label for="medicamento">Medicamento:</label>
+      <input type="text" id="medicamento" placeholder="Nombre del medicamento" required />
+
+      <label for="dosis">Dosis:</label>
+      <input type="text" id="dosis" placeholder="Ej: 1 comprimido cada 8 horas" required />
+
+      <label for="duracion">Duración:</label>
+      <input type="text" id="duracion" placeholder="Ej: 7 días" required />
+
+      <button type="submit">Generar Receta</button>
+    </form>
+
+    <h3>Historial de Recetas Generadas</h3>
+    <table class="tablaRecetas">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Medicamento</th>
+          <th>Dosis</th>
+          <th>Duración</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Camila Ginter</td>
+          <td>Ibuprofeno</td>
+          <td>1 comprimido cada 8 horas</td>
+          <td>7 días</td>
+          <td>2025-06-01</td>
+        </tr>
+        <tr>
+          <td>Juan Pérez</td>
+          <td>Paracetamol</td>
+          <td>500mg cada 6 horas</td>
+          <td>5 días</td>
+          <td>2025-05-20</td>
+        </tr>
+        <!-- Más recetas -->
+      </tbody>
+    </table>
+  </div>
+</main>
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section about">
+        <h4>MedTracker</h4>
+        <p>Software de gestión médica pensado para clínicas, profesionales y pacientes.</p>
+      </section>
+      <section class="footer-section links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="contacto/contacto.html">Contacto</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </section>
+      <section class="footer-section contact">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-envelope"></i> info@medtracker.com</p>
+        <p><i class="fas fa-phone"></i> +54 9 11 1234-5678</p>
+      </section>
+      <section class="footer-section social">
+        <h4>Seguinos</h4>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </section>
+    </div>
+    <div class="footer-copy">
+      © 2025 MedTracker. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="../js/indicacionMedica.js"></script>
+</body>
+
+</html>
