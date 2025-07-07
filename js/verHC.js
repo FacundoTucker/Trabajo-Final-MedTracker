@@ -25,3 +25,4 @@ if (enlaceIndicaciones) {
       enlaceIndicaciones.href = `/pages/indicacionMedica.html?dniCargado=${paciente.numeroDocumento}`;
       };
 });
+
