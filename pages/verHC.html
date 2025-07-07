@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ver Historia Clinica</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="../styles/carga.css">
 </head>
 
 <body class="verHC">
@@ -16,16 +16,6 @@
   </header>
 
   <div class="contenedorPrincipalVerHC">
-    <div class="dniBusqueda">
-      <h2>Mostrar Historia Clinica de paciente</h2>
-      <label for="dniBusqueda">Ingresa un DNI registrado.</label>
-      <input type="text" id="dniBusqueda" placeholder="Ej: 12345678" />
-      <button id="btnCargarPaciente">Cargar Datos</button>
-      <div id="mensajeCarga" class="mensajeEstadoVerHC"></div>
-
-    </div>
-    <hr>
-
     <div class="contenedorDatosVerHC">
       <form id="formularioPacienteCargadoVerHC">
         <label for="nombreCargado">Nombre:</label>
@@ -48,7 +38,7 @@
 
         <div class="historiaGuardadaVerHC">
           <a href="#" id="verEstudios">📄 Ver estudios </a>
-          <a href="/carga_hc/carga.html" id="carga_hc">📝 Volver a Carga de Evolutivos</a>
+          <a href="/pages/carga.html" id="carga_hc">📝 Volver a Carga de Evolutivos</a>
           <a href="#" id="indicacionMedica">📝 Indicaciones medicas | Recetas</a>
         </div>
       </form>
