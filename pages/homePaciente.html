@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Paciente – MedTracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../styles/stylesPaciente.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar">
+    <a href="solicitarTurno.html" class="nav-link"><i class="fa-solid fa-calendar-plus"></i><span>Solicitar
+        turno</span></a>
+    <a href="misTurnos.html" class="nav-link"><i class="fa-solid fa-clock"></i><span>Mis turnos</span></a>
+    <a href="archivosMedicos.html" class="nav-link"><i class="fa-solid fa-file-medical"></i><span>Archivos
+        médicos</span></a>
+    <a href="recetas.html" class="nav-link"><i class="fa-solid fa-prescription-bottle"></i><span>Recetas
+        electrónicas</span></a>
+    <a href="mensajes.html" class="nav-link"><i class="fa-solid fa-comments"></i><span>Mensajes</span></a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <button id="hamburger" class="hamburger"><i class="fa-solid fa-bars"></i></button>
+    <a href="home.html" class="logo">MedTracker</a>
+
+
+    <div class="user-menu">
+      <i class="fa-solid fa-gear" id="btn-config" style="font-size:20px;cursor:pointer"></i>
+      <img src="../img/usuario.png" />
+
+      <div id="config-menu" class="config-menu">
+        <a href="editarDatosPaciente.html" class="config-item">
+          <i class="fa-solid fa-user-pen"></i> Editar mis datos
+        </a>
+
+        <button id="btnEliminar" class="config-item" style="color:#fff;background-color:crimson;">
+          <i class="fa-solid fa-user-xmark"></i> Eliminar mi usuario
+        </button>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+  <main>
+  <!-- LO QUE SE VE EN EL HOMEPACIENTE -->
+  <!-- Próximo Turno  -->
+    <section class="card">
+      <h3>Próximo turno</h3>
+      <p>10 jul 2025 • 14:30 hs — Dra. Gómez (Dermatología)
+        <button class="btn" style="margin-left:1rem">Ver detalles</button>
+      </p>
+    </section>
+
+  <!-- Sacar Turno Rápido  -->
+    <section class="card">
+      <h3>Solicitar turno rápido</h3>
+      <p>
+        <select>
+          <option>Especialidad...</option>
+          <option>Clínica Médica</option>
+          <option>Pediatría</option>
+          <option>Cardiología</option>
+          <option>Dermatología</option>
+        </select>
+        <button class="btn" id="btnBuscar">Buscar disponibilidad</button>
+      </p>
+    </section>
+
+  <!-- Recetas Disponibles  -->
+    <section class="card">
+      <h3>Recetas activas</h3>
+      <table class="tabla-recetas">
+        <thead>
+          <tr>
+            <th>Medicamento</th>
+            <th>Dosis</th>
+            <th>Emitida</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ibuprofeno 800</td>
+            <td>400 mg</td>
+            <td>5 jun 2025</td>
+            <td><a href="#">Descargar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <section class="footer-section about">
+        <h4>MedTracker</h4>
+        <p>Software de gestión médica pensado para clínicas, profesionales y pacientes.</p>
+      </section>
+      <section class="footer-section links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="../pages/home.html">Inicio</a></li>
+          <li><a href="../pages/contacto.html">Contacto</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </section>
+      <section class="footer-section contact">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-envelope"></i> info@medtracker.com</p>
+        <p><i class="fas fa-phone"></i> +54 9 11 1234-5678</p>
+      </section>
+      <section class="footer-section social">
+        <h4>Seguinos</h4>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </section>
+    </div>
+    <div class="footer-copy">
+      © 2025 MedTracker. Todos los derechos reservados.
+    </div>
+  </footer>
+  <script src="../js/homePaciente.js"></script>
+</body>
+
+</html>
