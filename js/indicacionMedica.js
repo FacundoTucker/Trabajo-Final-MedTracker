@@ -18,3 +18,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+function imprimirDiv(idDiv) {
+  const contenidoOriginal = document.getElementById(idDiv);
+
+
+  const ventana = window.open('', '_blank');
+  ventana.document.write(`
+    <html>
+      <head>
+        <title>Imprimir</title>
+        <link rel="stylesheet" href="../styles/carga.css">
+        <style>
+          @media print {
+            body {
+              margin: 0;
+            }
+          }
+        </style>
+      </head>
+      <body onload="window.print(); window.close();">
+        ${contenidoOriginal.outerHTML}
+      </body>
+    </html>
+  `);
+  ventana.document.close();
+}
