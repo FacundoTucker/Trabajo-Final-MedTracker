@@ -13,9 +13,11 @@
     <a href="homeEspecialista.html"><button class="btn" id="btnBuscar">Volver al menú</button></a>
   </header>
 <div class="contenedorPrincipal2">
-    <div class="recetario">  
-      <div class="contenedorDatos">
-        <form id="formularioPacienteCargado">
+  <button onclick="imprimirDiv('recetario')">🖨️ Imprimir receta</button>
+  <hr>
+
+  <div id="recetario" class="recetario">      <div class="contenedorDatos2">
+        <form id="formularioPacienteCargado2">
             <label for="nombreCompleto">Nombre y apellido:</label>
             <input type="text" id="nombreCompleto" readonly />
 
