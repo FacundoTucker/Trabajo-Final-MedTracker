@@ -65,10 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
       telefonoCargado.value = pacienteEncontrado.telefono;
       domicilioCargado.value = pacienteEncontrado.domicilio;
       if (enlaceIndicaciones) {
-      enlaceIndicaciones.href = `/indicacionMedica/indicacionMedica.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
+      enlaceIndicaciones.href = `/pages/indicacionMedica.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
       };
       if (enlaceEvolutivos) {
-      enlaceEvolutivos.href = `/ver_Historial/verHC.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
+      enlaceEvolutivos.href = `/pages/verHC.html?dniCargado=${pacienteEncontrado.numeroDocumento}`;
       };
       mostrarMensaje(`Datos de "${pacienteEncontrado.nombre} ${pacienteEncontrado.apellido}" cargados.`, "exito");
     } else {

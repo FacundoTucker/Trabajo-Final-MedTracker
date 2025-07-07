@@ -1,8 +1,3 @@
-var btnBuscar = document.getElementById("btnBuscar");
-btnBuscar.addEventListener("click", function () {
-    window.location.href = "homeEspecialista.html";
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const dni = params.get("dniCargado");
@@ -17,11 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!paciente) return;
 
   // Cargar datos en los campos
-  document.getElementById("nombreCargado").value = paciente.nombre;
-  document.getElementById("apellidoCargado").value = paciente.apellido;
+  document.getElementById("nombreCompleto").value = `${paciente.nombre} ${paciente.apellido}`;
   document.getElementById("dniCargado").value = paciente.numeroDocumento;
-  document.getElementById("fechaNacimientoCargada").value = paciente.fechaNacimiento;
-  document.getElementById("telefonoCargado").value = paciente.telefono;
   document.getElementById("domicilioCargado").value = paciente.domicilio;
 
 });
