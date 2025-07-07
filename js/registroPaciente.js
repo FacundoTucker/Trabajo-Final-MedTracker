@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("registroEspecialistaForm");
-  const mensajeError = document.getElementById("mensajeEspecialista");
+  const form = document.getElementById("registroPacienteForm");
+  const mensajeError = document.getElementById("mensajeError");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -13,24 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const domicilio = document.getElementById("domicilio").value.trim();
     const email = document.getElementById("email").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
-    const matricula = document.getElementById("matricula").value.trim();
-    const especialidad = document.getElementById("especialidad").value.trim();
-    const contraseña = document.getElementById("contraseña").value;
-    const contraseñaRepetida = document.getElementById("contraseñaRepetida").value;
+    const contraseña = document.getElementById("contraseña").value.trim();
+    const contraseñaRepetida = document.getElementById("contraseñaRepetida").value.trim();
 
-    //verificar que todos los campos esten completos
-    if (!nombre || !apellido || !fechaNacimiento || !tipoDocumento || !numeroDocumento || !domicilio || !email || !telefono || !matricula || !especialidad || !contraseña || !contraseñaRepetida) {
-      mostrarError("Asegúrese de completar todos los campos correctamente.");
+    //validaciones basicas
+    if (!nombre || !apellido || !fechaNacimiento || !tipoDocumento || !numeroDocumento || !domicilio || !email || !telefono || !contraseña || !contraseñaRepetida) {
+      mostrarError("Asegúrese de completar todos los campos.");
       return;
     }
 
-    //verificar que las contraseñas coincidan
     if (contraseña !== contraseñaRepetida) {
       mostrarError("Las contraseñas no coinciden.");
       return;
     }
 
-    //verificar que la contraseña cumpla con los requisitos
     if (!validarContraseña(contraseña)) {
       mostrarError("La contraseña debe tener al menos 7 caracteres, una mayúscula y un número.");
       return;
@@ -54,8 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    //crear nuevo especialista
-    const nuevoEspecialista = {
+    const nuevoPaciente = {
       nombre,
       apellido,
       fechaNacimiento,
@@ -64,19 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
       domicilio,
       email,
       telefono,
-      matricula,
-      especialidad,
       contraseña
     };
 
-    //guardar nuevo especialista en localStorage
-    especialistasGuardados.push(nuevoEspecialista);
-    localStorage.setItem("especialistasDePrueba", JSON.stringify(especialistasGuardados));
+    pacientesGuardados.push(nuevoPaciente);
+    localStorage.setItem("pacientesDePrueba", JSON.stringify(pacientesGuardados));
 
     alert("✔ Registro exitoso.");
     form.reset();
-
-    window.location.href = "../pages/login.html";
+    //nos movemos al login
+    window.location.href = "login.html";
   });
 
   function mostrarError(mensaje) {
@@ -92,4 +84,3 @@ document.addEventListener("DOMContentLoaded", () => {
     return tieneMayuscula && tieneNumero;
   }
 });
-

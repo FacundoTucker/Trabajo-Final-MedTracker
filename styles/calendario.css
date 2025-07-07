@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -18,15 +18,18 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 1.8rem;
-  background: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e3e3e3;
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
-  color: #0077c2;
-  cursor: default;
+  text-decoration: none;
+  color: #00acdb;
+  font-family: 'Arial Black', sans-serif;
+  padding-left: 20px;
 }
 
 .acciones-header button {
@@ -140,6 +143,9 @@ button:hover {
 }
 
 /* --- FOOTER --- */
+footer{
+  margin-top: 50px;
+}
 footer.footer {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.85);

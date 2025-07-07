@@ -6,10 +6,7 @@ var horarios = [
     "10:00",
     "10:30",
     "11:00",
-    "12:00",
-    "13:00",
-    "14:00",
-    "15:00",
+    "12:00"
 ];
 var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 var turnos = [

@@ -10,12 +10,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background: var(--bg);
+  background:url("../img/fondo.jpg") center/cover fixed no-repeat;
   color: var(--text);
   display: block;
 }
@@ -62,7 +62,7 @@ header {
   left: 0;
   right: 0;
   height: 90px;
-  background: rgba(255, 255, 255, .95);
+  background:white;
   border-bottom: 1px solid #e3e3e3;
   display: flex;
   justify-content: space-between;
@@ -72,10 +72,12 @@ header {
 }
 
 .logo {
-  font-size: 1.8rem;
-  color: var(--primary-dark);
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: bold;
   text-decoration: none;
+  color: #00acdb;
+  font-family: 'Arial Black', sans-serif;
+  padding-left: 20px;
 }
 
 .user-menu {
@@ -171,34 +173,37 @@ main {
 }
 
 /* --- FOOTER --- */
+footer {
+  margin-top: 150px;
+}
+
 footer.footer {
-  width: calc(100% - 220px);
-  margin-left: 220px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.85);
   color: #f5f5f5;
-  font-size: 0.95rem;
-  padding-top: 2.5rem;
+  font-size: 0.85rem;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
+  padding: 1.2rem 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.2rem;
   justify-content: space-evenly;
 }
 
 .footer-section h4 {
-  margin-bottom: 0.7rem;
-  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem; 
   color: #00acdb;
 }
 
 .footer-section p,
 .footer-section ul {
-  line-height: 1.6;
+  line-height: 1.4;
+  margin: 0;
 }
 
 .footer-section ul {
@@ -217,19 +222,19 @@ footer.footer {
 }
 
 .footer-section.social a {
-  font-size: 1.3rem;
-  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
   color: #f5f5f5;
   transition: transform 0.3s;
 }
 
 .footer-section.social a:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .footer-copy {
   background-color: rgba(0, 0, 0, 0.92);
   text-align: center;
-  padding: 1rem 0;
-  font-size: 0.85rem;
+  padding: 0.6rem 0;
+  font-size: 0.75rem;
 }

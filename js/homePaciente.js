@@ -41,5 +41,5 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 var btnBuscar = document.getElementById("btnBuscar");
 btnBuscar.addEventListener("click", function () {
-    window.location.href = "simulacion/solicitarTurno.html";
+    window.location.href = "solicitarTurno.html";
 });
