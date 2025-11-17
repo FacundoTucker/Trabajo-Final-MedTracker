@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne } from 'typeorm';
 import { Turno } from '../../turno/entities/turno.entity';
 import { HistoriaClinica } from '../../historia-clinica/entities/historia-clinica.entity';
+import { IsEmail } from 'class-validator';
 
 @Entity('Paciente')
 export class Paciente {

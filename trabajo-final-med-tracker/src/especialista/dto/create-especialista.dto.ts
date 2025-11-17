@@ -11,7 +11,7 @@ export class CreateEspecialistaDto {
   @MaxLength(60)
   apellido: string;
 
-  @IsDateString()
+   @IsDateString({}, { message: "Debes ingresar una fecha válida con el formato DD-MM-AAAA." })
   @IsNotEmpty()
   fechaNacimiento: string;
 
@@ -24,7 +24,7 @@ export class CreateEspecialistaDto {
   @MaxLength(45)
   domicilio: string;
 
-  @IsEmail()
+  @IsEmail({}, { message: "Debes ingresar un correo electrónico válido." })
   @IsNotEmpty()
   @MaxLength(60)
   correoElectronico: string;

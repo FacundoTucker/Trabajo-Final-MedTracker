@@ -7,9 +7,6 @@ export class HistoriaClinica {
   @PrimaryGeneratedColumn()
   idHistoriaClinica: number;
 
-  @Column()
-  idPaciente: number;
-
   @OneToOne(() => Paciente, paciente => paciente.historiaClinica, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'idPaciente' })
   paciente: Paciente;

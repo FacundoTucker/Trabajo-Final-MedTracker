@@ -19,7 +19,7 @@ export class HistoriaClinicaService {
     const paciente = await this.pacienteRepo.findOne({ where: { idPaciente: dto.idPaciente } });  //crea la historia clinica y se la asigna a su paciente
     if (!paciente) throw new NotFoundException(`Paciente con id ${dto.idPaciente} no encontrado`);
 
-    const nuevaHistoriaClinica = this.historiaRepo.create({ paciente });
+    const nuevaHistoriaClinica = this.historiaRepo.create({ paciente: paciente });
     return await this.historiaRepo.save(nuevaHistoriaClinica);
   }
 
