@@ -1,4 +1,3 @@
-// especialista.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Turno } from '../../turno/entities/turno.entity';
 

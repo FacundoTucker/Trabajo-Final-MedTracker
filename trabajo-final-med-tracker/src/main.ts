@@ -1,15 +1,25 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { join } from 'path';
+import * as express from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Esto hace que se validen todos los DTOs automáticamente
+  app.use(express.static(join(__dirname, '..', 'public')));
+
+  app.enableCors({
+    origin: 'http://localhost:5173', //URL donde corre React
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true,
+  });
+
+  //esto hace que se validen todos los DTOs automáticamente
   app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,  // elimina propiedades no declaradas en el DTO
-    forbidNonWhitelisted: true, // lanza error si vienen propiedades extras
-    transform: true, // transforma tipos automáticamente, ej: string -> number
+    whitelist: true,  //elimina propiedades no declaradas en el DTO
+    forbidNonWhitelisted: true, //lanza error si vienen propiedades extras
+    transform: true, // transforma tipos automaticamente
   }));
 
   await app.listen(3000);
