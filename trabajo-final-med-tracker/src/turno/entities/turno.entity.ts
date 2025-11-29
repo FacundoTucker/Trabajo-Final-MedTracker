@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 't
 import { Paciente } from '../../paciente/entities/paciente.entity';
 import { Especialista } from '../../especialista/entities/especialista.entity';
 
-@Entity('Turno')
+@Entity('turnos')
 export class Turno {
   @PrimaryGeneratedColumn()
   idTurno: number;
@@ -13,7 +13,7 @@ export class Turno {
   @Column()
   idEspecialista: number;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'timestamp' })
   fechaTurno: Date;
 
   @Column({ length: 45 })
