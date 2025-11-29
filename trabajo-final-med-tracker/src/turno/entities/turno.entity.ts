@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 't
 import { Paciente } from '../../paciente/entities/paciente.entity';
 import { Especialista } from '../../especialista/entities/especialista.entity';
 
-@Entity('turnos')
+@Entity('Turno')
 export class Turno {
   @PrimaryGeneratedColumn()
   idTurno: number;
