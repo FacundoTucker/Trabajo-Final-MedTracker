@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Param, Body, Patch } from '@nestjs/common';
 import { TurnoService } from './turno.service';
 import { CreateTurnoDto } from './dto/create-turno.dto';
 
-@Controller('turno')
+@Controller('turnos')
 export class TurnoController {
   constructor(private readonly turnoService: TurnoService) {}
 
@@ -16,6 +16,11 @@ export class TurnoController {
     return this.turnoService.findAll();
   }
 
+  @Get('paciente/:idPaciente')
+  findByPaciente(@Param('idPaciente') idPaciente: string) {
+    return this.turnoService.findByPaciente(+idPaciente);
+  }
+
   @Get(':idTurno')
   findOne(@Param('idTurno') idTurno: string) {
     return this.turnoService.findOne(+idTurno);
@@ -24,6 +29,11 @@ export class TurnoController {
   @Delete(':idTurno')
   remove(@Param('idTurno') idTurno: string) {
     return this.turnoService.remove(+idTurno);
+  }
+
+  @Patch(':idTurno')
+  update(@Param('idTurno') idTurno: string, @Body() body: any) {
+    return this.turnoService.update(+idTurno, body);
   }
 }
 
