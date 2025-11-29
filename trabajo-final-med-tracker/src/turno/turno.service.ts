@@ -17,13 +17,23 @@ export class TurnoService {
     private readonly especialistaRepo: Repository<Especialista>,
   ) {}
 
-  //create
+  // CREATE
   async create(dto: CreateTurnoDto): Promise<Turno> {
-    const paciente = await this.pacienteRepo.findOne({ where: { idPaciente: dto.idPaciente } });
-    if (!paciente) throw new NotFoundException(`Paciente con id ${dto.idPaciente} no encontrado`);
+    const paciente = await this.pacienteRepo.findOne({
+      where: { idPaciente: dto.idPaciente },
+    });
+    if (!paciente)
+      throw new NotFoundException(
+        `Paciente con id ${dto.idPaciente} no encontrado`,
+      );
 
-    const especialista = await this.especialistaRepo.findOne({ where: { idEspecialista: dto.idEspecialista } });
-    if (!especialista) throw new NotFoundException(`Especialista con id ${dto.idEspecialista} no encontrado`);
+    const especialista = await this.especialistaRepo.findOne({
+      where: { idEspecialista: dto.idEspecialista },
+    });
+    if (!especialista)
+      throw new NotFoundException(
+        `Especialista con id ${dto.idEspecialista} no encontrado`,
+      );
 
     const turno = this.turnoRepo.create({
       idPaciente: dto.idPaciente,
@@ -37,10 +47,14 @@ export class TurnoService {
     return await this.turnoRepo.save(turno);
   }
 
+  // GET ALL
   async findAll(): Promise<Turno[]> {
-    return await this.turnoRepo.find({ relations: ['paciente', 'especialista'] });
+    return await this.turnoRepo.find({
+      relations: ['paciente', 'especialista'],
+    });
   }
 
+  // GET ONE
   async findOne(idTurno: number): Promise<Turno> {
     const turno = await this.turnoRepo.findOne({
       where: { idTurno },
@@ -50,10 +64,38 @@ export class TurnoService {
     return turno;
   }
 
+  // UPDATE
+  async update(idTurno: number, data: Partial<Turno>) {
+    const turno = await this.turnoRepo.findOne({ where: { idTurno } });
+
+    if (!turno) {
+      throw new NotFoundException(`Turno no encontrado`);
+    }
+
+    await this.turnoRepo.update(idTurno, data);
+
+    return this.turnoRepo.findOne({
+      where: { idTurno },
+      relations: ['paciente', 'especialista'],
+    });
+  }
+
+  // DELETE
   async remove(idTurno: number): Promise<boolean> {
-    const result = await this.turnoRepo.delete({ idTurno});
-    if (result.affected === 0) throw new NotFoundException(`Turno no encontrado`);
+    const result = await this.turnoRepo.delete({ idTurno });
+
+    if (result.affected === 0)
+      throw new NotFoundException(`Turno no encontrado`);
     return true;
   }
-}
 
+
+  // TURNOS POR PACIENTE
+  async findByPaciente(idPaciente: number) {
+    return this.turnoRepo.find({
+      where: { idPaciente },
+      relations: ['especialista'], 
+      order: { fechaTurno: 'ASC' }
+      });
+    }
+}
