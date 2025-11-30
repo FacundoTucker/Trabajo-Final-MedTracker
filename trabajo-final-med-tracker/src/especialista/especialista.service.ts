@@ -7,6 +7,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Especialista } from './entities/especialista.entity';
+import { Turno } from '../turno/entities/turno.entity';
 import { CreateEspecialistaDto } from './dto/create-especialista.dto';
 import { UpdateEspecialistaDto } from './dto/update-especialista.dto';
 import { EmailCheckService } from 'src/email-check/email-check.service';
@@ -17,7 +18,18 @@ export class EspecialistaService {
     @InjectRepository(Especialista)
     private readonly especialistaRepo: Repository<Especialista>,
     private readonly emailCheckService: EmailCheckService,
+
+    @InjectRepository(Turno)
+    private readonly turnoRepo: Repository<Turno>,
   ) {}
+
+  async findTurnos(idEspecialista: number) {
+    return this.turnoRepo.find({
+      where: {idEspecialista},
+      relations: ['paciente'],
+      order: {fechaTurno: 'ASC',}
+    });
+  }
 
   async create(dto: CreateEspecialistaDto): Promise<Especialista> {
     if (await this.emailCheckService.emailExists(dto.correoElectronico)) {
@@ -90,5 +102,6 @@ export class EspecialistaService {
     return true;
   }
 }
+
 
 

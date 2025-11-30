@@ -22,6 +22,11 @@ export class EspecialistaController {
     return this.especialistaService.findOne(+id);
   }
 
+  @Get(':idEspecialista/turnos')
+  findTurnos(@Param('idEspecialista') id: number) {
+    return this.especialistaService.findTurnos(id);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() dto: UpdateEspecialistaDto) {
     return this.especialistaService.update(+id, dto);
