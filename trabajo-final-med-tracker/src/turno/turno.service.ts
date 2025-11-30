@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Turno } from './entities/turno.entity';
@@ -16,7 +16,7 @@ export class TurnoService {
     @InjectRepository(Especialista)
     private readonly especialistaRepo: Repository<Especialista>,
   ) {}
-
+  
   // CREATE
   async create(dto: CreateTurnoDto): Promise<Turno> {
     const paciente = await this.pacienteRepo.findOne({
@@ -34,6 +34,8 @@ export class TurnoService {
       throw new NotFoundException(
         `Especialista con id ${dto.idEspecialista} no encontrado`,
       );
+
+    this.validateFechaTurno(dto.fechaTurno);
 
     const turno = this.turnoRepo.create({
       idPaciente: dto.idPaciente,
@@ -64,38 +66,92 @@ export class TurnoService {
     return turno;
   }
 
-  // UPDATE
-  async update(idTurno: number, data: Partial<Turno>) {
-    const turno = await this.turnoRepo.findOne({ where: { idTurno } });
+private validateFechaTurno(fechaTurno: string | Date) {
+  const fecha = new Date(fechaTurno);
 
-    if (!turno) {
-      throw new NotFoundException(`Turno no encontrado`);
-    }
-
-    await this.turnoRepo.update(idTurno, data);
-
-    return this.turnoRepo.findOne({
-      where: { idTurno },
-      relations: ['paciente', 'especialista'],
-    });
+  if (isNaN(fecha.getTime())) {
+    throw new BadRequestException("Fecha inválida");
   }
 
+  // ❌ No permitir fechas pasadas
+  const ahora = new Date();
+  if (fecha < ahora) {
+    throw new BadRequestException("No podés elegir una fecha pasada");
+  }
+
+  const day = fecha.getDay(); // 0 domingo, 6 sábado
+  if (day === 0 || day === 6) {
+    throw new BadRequestException("No hay turnos fin de semana");
+  }
+
+  const hour = fecha.getHours();
+  if (hour < 8 || hour >= 16) {
+    throw new BadRequestException("El horario debe estar entre 08:00 y 16:00");
+  }
+}
+
+
+  // UPDATE
+async update(idTurno: number, data: Partial<Turno>) {
+  const turno = await this.turnoRepo.findOne({ where: { idTurno } });
+
+  if (!turno) {
+    throw new NotFoundException(`Turno no encontrado`);
+  }
+
+  // ⬅️ Validación de fecha y hora (solo si está intentando cambiar fechaTurno)
+  if (data.fechaTurno) {
+    this.validateFechaTurno(data.fechaTurno);
+  }
+
+  await this.turnoRepo.update(idTurno, data);
+
+  return this.turnoRepo.findOne({
+    where: { idTurno },
+    relations: ['paciente', 'especialista'],
+  });
+}
+
+    
   // DELETE
-  async remove(idTurno: number): Promise<boolean> {
+  async remove(idTurno: number) {
+  try {
     const result = await this.turnoRepo.delete({ idTurno });
 
-    if (result.affected === 0)
-      throw new NotFoundException(`Turno no encontrado`);
-    return true;
+    if (result.affected === 0) {
+      return null; // El controller tirará el NotFound
+    }
+
+    return { message: "Turno eliminado correctamente" };
+  } catch (error) {
+    return null;
+  }
+}
+
+  async findByPaciente(idPaciente: number) {
+  console.log("Buscando turnos para paciente:", idPaciente);
+
+  const turnos = await this.turnoRepo.find({
+    where: { idPaciente },
+    relations: ['paciente', 'especialista'], 
+    order: { fechaTurno: 'ASC' }
+  });
+
+  console.log("Turnos encontrados:", turnos);
+  return turnos;
+}
+
+async updateEstado(id: number, estado: string) {
+  const turno = await this.turnoRepo.findOne({ where: { idTurno: id } });
+
+  if (!turno) {
+    throw new NotFoundException('Turno no encontrado');
   }
 
+  turno.estado = estado; // "Confirmado" | "Rechazado" | "Reservado" etc
 
-  // TURNOS POR PACIENTE
-  async findByPaciente(idPaciente: number) {
-    return this.turnoRepo.find({
-      where: { idPaciente },
-      relations: ['especialista'], 
-      order: { fechaTurno: 'ASC' }
-      });
-    }
+  return this.turnoRepo.save(turno);
+}
+
+
 }
