@@ -1,14 +1,19 @@
-import { Controller, Get, Post, Delete, Param, Body, Patch } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Param, Body, Patch, ParseIntPipe, NotFoundException, BadRequestException } from '@nestjs/common';
 import { TurnoService } from './turno.service';
 import { CreateTurnoDto } from './dto/create-turno.dto';
+import { UpdateTurnoDto } from './dto/update-turno.dto';
 
-@Controller('turnos')
+@Controller('turno')
 export class TurnoController {
   constructor(private readonly turnoService: TurnoService) {}
 
-  @Post()
-  create(@Body() dto: CreateTurnoDto) {
-    return this.turnoService.create(dto);
+    @Post()
+  async create(@Body() dto: CreateTurnoDto) {
+    const turno = await this.turnoService.create(dto);
+    if (!turno) {
+      throw new BadRequestException('No se puede crear el turno: fecha pasada o fuera del horario del especialista');
+    }
+    return turno;
   }
 
   @Get()
@@ -17,23 +22,42 @@ export class TurnoController {
   }
 
   @Get('paciente/:idPaciente')
-  findByPaciente(@Param('idPaciente') idPaciente: string) {
+  findByPaciente(@Param('idPaciente',ParseIntPipe) idPaciente: string) {
     return this.turnoService.findByPaciente(+idPaciente);
   }
 
-  @Get(':idTurno')
-  findOne(@Param('idTurno') idTurno: string) {
-    return this.turnoService.findOne(+idTurno);
+    @Get(':idTurno')
+  async findOne(@Param('idTurno', ParseIntPipe) idTurno: number) {
+    const turno = await this.turnoService.findOne(idTurno);
+    if (!turno) throw new NotFoundException(`Turno con id ${idTurno} no encontrado`);
+    return turno;
   }
 
   @Delete(':idTurno')
-  remove(@Param('idTurno') idTurno: string) {
-    return this.turnoService.remove(+idTurno);
+  async remove(@Param('idTurno', ParseIntPipe) idTurno: number) {
+    const result = await this.turnoService.remove(idTurno);
+    if (!result) throw new NotFoundException(`Turno con id ${idTurno} no encontrado`);
+    return result;
   }
 
-  @Patch(':idTurno')
-  update(@Param('idTurno') idTurno: string, @Body() body: any) {
-    return this.turnoService.update(+idTurno, body);
+@Patch(':idTurno')
+  async update(
+    @Param('idTurno', ParseIntPipe) idTurno: number,
+    @Body() body: any
+  ) {
+    console.log("Body recibido:", body);
+    const turno = await this.turnoService.update(idTurno, body);
+    return turno;
   }
+
+  @Patch(':id/estado')
+updateEstado(
+  @Param('id') id: number,
+  @Body('estado') estado: string,
+) {
+  return this.turnoService.updateEstado(id, estado);
+}
+
+
 }
 
