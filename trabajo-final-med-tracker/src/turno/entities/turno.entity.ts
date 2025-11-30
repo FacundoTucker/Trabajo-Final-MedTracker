@@ -16,7 +16,7 @@ export class Turno {
   @Column({ type: 'timestamp' })
   fechaTurno: Date;
 
-  @Column({ length: 45 })
+  @Column({ type: 'varchar', length: 45, default: 'Pendiente'})
   estado: string;
 
   @ManyToOne(() => Paciente, paciente => paciente.turnos, { onDelete: 'CASCADE' })
