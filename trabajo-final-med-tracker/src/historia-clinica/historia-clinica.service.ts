@@ -53,5 +53,21 @@ export class HistoriaClinicaService {
     if (result.affected === 0) throw new NotFoundException(`Historia clínica con id ${id} no encontrada`);
     return true;
   }
+
+  async findByPaciente(idPaciente: number): Promise<HistoriaClinica> {
+  const historia = await this.historiaRepo.findOne({
+    where: { paciente: { idPaciente } },
+    relations: ['paciente', 'indicaciones'],
+  });
+
+  if (!historia) {
+    throw new NotFoundException(
+      `No existe historia clínica para el paciente con id ${idPaciente}`,
+    );
+  }
+
+  return historia;
+}
+
 }
 
