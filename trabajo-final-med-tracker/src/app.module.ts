@@ -16,7 +16,7 @@ import { AuthModule } from './auth/auth.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'facultad2019',
+      password: 'Facundo2',
       database: 'medtracker',
       autoLoadEntities: true,
       synchronize: false,
