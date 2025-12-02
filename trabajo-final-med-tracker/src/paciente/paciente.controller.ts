@@ -31,4 +31,9 @@ export class PacienteController {
   remove(@Param('id') id: string) {
     return this.pacienteService.remove(+id);
   }
+  @Get('dni/:dni')
+  findByDni(@Param('dni') dni: string) {
+  return this.pacienteService.findByDni(+dni);
 }
+}
+

@@ -22,6 +22,12 @@ export class HistoriaClinicaController {
     return this.historiaService.findOne(+id);
   }
 
+  @Get('paciente/:idPaciente')
+  async findByPaciente(@Param('idPaciente') idPaciente: string) {
+    return this.historiaService.findByPaciente(+idPaciente);
+}
+
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() dto: UpdateHistoriaClinicaDto) {
     return this.historiaService.update(+id, dto);

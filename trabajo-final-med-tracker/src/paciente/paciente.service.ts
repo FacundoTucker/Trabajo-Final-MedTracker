@@ -73,6 +73,19 @@ export class PacienteService {
     if (result.affected === 0) throw new NotFoundException(`Paciente con id ${id} no encontrado`);
     return true;
   }
+  async findByDni(dni: number): Promise<Paciente> {
+  const paciente = await this.pacienteRepo.findOne({
+    where: { DNI: dni },
+    relations: ['historiaClinica', 'turnos'],
+  });
+
+  if (!paciente) {
+    throw new NotFoundException(`No existe un paciente con DNI ${dni}`);
+  }
+
+  return paciente;
+}
+
 }
 
 
