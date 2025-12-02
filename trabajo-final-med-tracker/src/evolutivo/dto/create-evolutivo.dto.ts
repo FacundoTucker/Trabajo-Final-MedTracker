@@ -1,6 +1,6 @@
 import { IsInt, IsNotEmpty, IsString, MaxLength, IsDateString } from 'class-validator';
 
-export class CreateIndicacionMedicaDto {
+export class CreateEvolutivoDto {
   @IsInt()
   @IsNotEmpty()
   idHistoriaClinica: number;
@@ -14,6 +14,3 @@ export class CreateIndicacionMedicaDto {
   @IsNotEmpty()
   fecha: string;
 }
-
-
-

@@ -8,6 +8,7 @@ import { HistoriaClinicaModule } from './historia-clinica/historia-clinica.modul
 import { TurnoModule } from './turno/turno.module';
 import { IndicacionMedicaModule } from './indicacion-medica/indicacion-medica.module';
 import { AuthModule } from './auth/auth.module';
+import { EvolutivoModule } from './evolutivo/evolutivo.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { AuthModule } from './auth/auth.module';
     TurnoModule,
     IndicacionMedicaModule,
     AuthModule,
+    EvolutivoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
