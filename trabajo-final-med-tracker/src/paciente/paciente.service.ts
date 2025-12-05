@@ -61,9 +61,38 @@ export class PacienteService {
 
   async update(id: number, dto: UpdatePacienteDto): Promise<Paciente> {
     const paciente = await this.findOne(id);
-    if (dto.correoElectronico && await this.emailCheckService.emailExists(dto.correoElectronico)) {
-      throw new BadRequestException('Ese correo ya está utilizado por otro usuario.');
+    if (dto.correoElectronico) {
+    const nuevoEmail = dto.correoElectronico;
+
+    //si el email cambio, verificar si ya lo usa otro usuario
+    if (nuevoEmail !== paciente.correoElectronico) {
+      const emailEnUso = await this.emailCheckService.emailExists(nuevoEmail);
+
+      if (emailEnUso) {
+        throw new BadRequestException(
+          'Ese correo ya está utilizado por otro usuario.'
+        );
+      }
     }
+  }
+
+  //validacion de DNI
+  if (dto.DNI) {
+    const nuevoDni = dto.DNI;
+
+    //si el DNI cambio, verificar si ya lo usa otro paciente
+    if (nuevoDni !== paciente.DNI) {
+      const pacienteConMismoDni = await this.pacienteRepo.findOne({
+        where: { DNI: nuevoDni },
+      });
+
+      if (pacienteConMismoDni) {
+        throw new BadRequestException(
+          'Ese número de documento ya pertenece a otro paciente.'
+        );
+      }
+    }
+  }
     Object.assign(paciente, dto);
     return await this.pacienteRepo.save(paciente);
   }
