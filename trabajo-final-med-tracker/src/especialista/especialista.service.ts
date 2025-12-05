@@ -42,7 +42,7 @@ export class EspecialistaService {
     } catch (error) {
       if (error.code === 'ER_DUP_ENTRY' || error.code === '23505') {
         throw new BadRequestException(
-          'Ya existe un especialista con ese DNI, correo electrónico o matrícula.',
+          'Ya existe un especialista con ese DNI, o matrícula.',
         );
       }
       throw new InternalServerErrorException(
@@ -70,9 +70,37 @@ export class EspecialistaService {
   async update(id: number, dto: UpdateEspecialistaDto): Promise<Especialista> {
     const especialista = await this.findOne(id);
 
-    if (dto.correoElectronico && await this.emailCheckService.emailExists(dto.correoElectronico)) {
-      throw new BadRequestException('Ese correo ya está utilizado por otro usuario.');
+    if (
+    dto.correoElectronico &&
+    dto.correoElectronico !== especialista.correoElectronico &&
+    await this.emailCheckService.emailExists(dto.correoElectronico)
+  ) {
+    throw new BadRequestException('Ese correo ya está utilizado por otro usuario.');
+  }
+
+  // ✔ Verificar DNI repetido (solo si lo cambia)
+  if (dto.DNI && dto.DNI !== especialista.DNI) {
+    const dniExiste = await this.especialistaRepo.findOne({
+      where: { DNI: dto.DNI },
+    });
+
+    if (dniExiste && dniExiste.idEspecialista !== id) {
+      throw new BadRequestException('Ese DNI ya pertenece a otro especialista.');
     }
+  }
+
+  // ✔ Verificar matrícula repetida (solo si la cambia)
+  if (dto.nroMatricula && dto.nroMatricula !== especialista.nroMatricula) {
+    const matriculaExiste = await this.especialistaRepo.findOne({
+      where: { nroMatricula: dto.nroMatricula },
+    });
+
+    if (matriculaExiste && matriculaExiste.idEspecialista !== id) {
+      throw new BadRequestException(
+        'Ese número de matrícula ya pertenece a otro especialista.',
+      );
+    }
+  }
     Object.assign(especialista, dto);
 
     try {
