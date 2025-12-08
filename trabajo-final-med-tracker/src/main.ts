@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(express.static(join(__dirname, '..', 'public')));
 
   app.enableCors({
-    origin: ["https://trabajo-final-medtracker-react.onrender.com","http://localhost:5173"], //URL donde corre React  //habilita para que venga algo de la nube 
+    origin: ["https://trabajo-final-medtracker.onrender.com","http://localhost:5173"], //URL donde corre React  //habilita para que venga algo de la nube 
     methods: 'GET,POST,PUT,DELETE,PATCH',
     credentials: true,
   });
@@ -22,7 +22,7 @@ async function bootstrap() {
     transform: true, // transforma tipos automaticamente
   }));
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
 
