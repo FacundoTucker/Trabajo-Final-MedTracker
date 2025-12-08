@@ -20,7 +20,7 @@ import { EvolutivoModule } from './evolutivo/evolutivo.module';
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DB,
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
     }),
 
     EspecialistaModule,
