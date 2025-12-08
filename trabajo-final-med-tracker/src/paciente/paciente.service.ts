@@ -5,7 +5,7 @@ import { Paciente } from './entities/paciente.entity';
 import { CreatePacienteDto } from './dto/create-paciente.dto';
 import { UpdatePacienteDto } from './dto/update-paciente.dto';
 import { HistoriaClinicaService } from '../historia-clinica/historia-clinica.service';
-import { EmailCheckService } from 'src/email-check/email-check.service';
+import { EmailCheckService } from '../email-check/email-check.service';
 
 @Injectable()
 export class PacienteService {

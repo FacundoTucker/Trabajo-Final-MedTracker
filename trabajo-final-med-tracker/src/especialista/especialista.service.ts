@@ -10,7 +10,7 @@ import { Especialista } from './entities/especialista.entity';
 import { Turno } from '../turno/entities/turno.entity';
 import { CreateEspecialistaDto } from './dto/create-especialista.dto';
 import { UpdateEspecialistaDto } from './dto/update-especialista.dto';
-import { EmailCheckService } from 'src/email-check/email-check.service';
+import { EmailCheckService } from '../email-check/email-check.service';
 
 @Injectable()
 export class EspecialistaService {
