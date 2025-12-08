@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany, Column } from 'typeorm';
 import { Paciente } from '../../paciente/entities/paciente.entity';
 import { IndicacionMedica } from '../../indicacion-medica/entities/indicacion-medica.entity';
-import { Evolutivo } from 'src/evolutivo/entities/evolutivo.entity';
+import { Evolutivo } from '../../evolutivo/entities/evolutivo.entity';
 
 @Entity('HistoriaClinica')
 export class HistoriaClinica {
