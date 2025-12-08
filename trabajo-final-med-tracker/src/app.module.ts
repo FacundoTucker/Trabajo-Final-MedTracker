@@ -14,11 +14,11 @@ import { EvolutivoModule } from './evolutivo/evolutivo.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'bvhzqooqi7u6rclpt2io-mysql.services.clever-cloud.com',
-      port: 3306,
-      username: 'upfa70poww2t5tmr',
-      password: 'KvmW0PYN4SzGuquYZOA5',
-      database: 'bvhzqooqi7u6rclpt2io',
+      host: 'process.env.MYSQL_HOST',
+      port:  parseInt(process.env.MYSQL_PORT ?? '3306') ,
+      username: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB,
       autoLoadEntities: true,
       synchronize: false,
     }),
