@@ -22,22 +22,24 @@ import { EvolutivoModule } from './evolutivo/evolutivo.module';
 
     // 2️⃣ Configuración segura para MySQL en Clever Cloud
     TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'mysql',
-        host: process.env.MYSQL_HOST,
-        port:  parseInt(process.env.MYSQL_PORT ?? '3306') ,
-        username: process.env.MYSQL_USER,
-        password: process.env.MYSQL_PASSWORD,
-        database: process.env.MYSQL_DB,
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        autoLoadEntities: true,
-        synchronize: true, // puedes poner false en producción
+  imports: [ConfigModule],
+  inject: [ConfigService],
+  useFactory: (config: ConfigService) => ({
+    type: 'mysql',
+    host: config.get<string>('MYSQL_HOST'),        // ✅ usar ConfigService
+    port: parseInt(config.get<string>('MYSQL_PORT') ?? '3306'),
+    username: config.get<string>('MYSQL_USER'),
+    password: config.get<string>('MYSQL_PASSWORD'),
+    database: config.get<string>('MYSQL_DB'),
+    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    autoLoadEntities: true,
+    synchronize: true,  // poner false en producción
+    ssl: {
+      rejectUnauthorized: false, // Clever Cloud requiere SSL
+    },
+  }),
+}),
 
-        //  🔐 Clever Cloud exige SSL obligatoriamente
-        ssl: { rejectUnauthorized: false },
-      }),
-    }),
 
     EspecialistaModule,
     PacienteModule,
