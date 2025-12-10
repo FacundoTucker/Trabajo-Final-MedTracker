@@ -73,12 +73,22 @@ export class TurnoService {
   private validateFechaTurno(fechaTurno: string | Date) {
     const fecha = new Date(fechaTurno);
 
+    const fechaLocal = new Date (
+      fecha.getFullYear(),
+      fecha.getMonth(),
+      fecha.getDate(),
+      fecha.getHours(),
+      fecha.getMinutes(),
+      0,
+      0
+    )
+
     if (isNaN(fecha.getTime())) {
       throw new BadRequestException("Fecha inválida");
     }
 
     const ahora = new Date();
-    if (fecha < ahora) {
+    if (fechaLocal < ahora) {
       throw new BadRequestException("No podés elegir una fecha pasada");
     }
 
