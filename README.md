@@ -12,20 +12,15 @@ Los especialistas pueden consultar su agenda diaria o semanal, atender pacientes
 El sistema incorpora validaciones en formularios, control de sesiones y mecanismos básicos de seguridad para proteger los datos sensibles.
 
 -- Tecnologías utilizadas --
-El desarrollo del sistema está construida con HTML, CSS y JavaScript. Para persistencia de datos en modo local se emplea LocalStorage, con posibilidad de integración a futuro con un backend basado en Node.js o NestJS y bases de datos como MongoDB o MySQL.
+El desarrollo del sistema está construida en React con archivos .JSX y .CSS para estilizarlo. Integracion a backend basado en NestJS y base de datos en MySQL.
 
 -- Casos de uso --
 Un paciente puede registrarse, iniciar sesión, gestionar sus turnos y acceder a su historial clínico. Un especialista puede registrarse, revisar su agenda, gestionar turnos, y registrar información clínica correspondiente a cada paciente atendido.
 
 -- Futuras mejoras --
-Se contempla la incorporación de una base de datos externa para almacenamiento persistente, un sistema de notificaciones por correo electrónico, soporte para subir archivos adjuntos (como estudios o recetas), diseño adaptativo para dispositivos móviles y un panel administrativo para supervisión general del sistema.
+Se contempla la incorporación de un sistema de notificaciones por correo electrónico, soporte para subir archivos adjuntos (como estudios o recetas), diseño adaptativo para dispositivos móviles y un panel administrativo para supervisión general del sistema.
 
 -- Documentación adicional --
 A continuación se pueden consultar los documentos que acompañan al desarrollo del sistema:
-
-Historias de usuario:
-https://trello.com/b/boPnQxnI/medtraker
-
-Diagrama de flujo general del sistema:
-https://lucid.app/lucidchart/1dbb9176-aee1-4c96-970f-d1932d0cf279/edit?viewport_loc=-748%2C288%2C3260%2C1437%2C0_0&invitationId=inv_2490cee1-2fc2-4e98-b494-17841ddf2246
+https://docs.google.com/document/d/1EBpsaw4D5pnjFwjWvRnbPdzhK017DFwhO13avZExppw/edit?tab=t.0
 
