@@ -41,6 +41,7 @@ export class AuthService {
         tipo: "paciente",
         id: paciente.idPaciente,
         nombre: paciente.nombre,
+        dni:paciente.DNI,
       };
     }
 
