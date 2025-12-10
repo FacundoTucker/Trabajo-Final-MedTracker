@@ -1,3 +1,6 @@
+// TURNOS CADA 30 MINUTOS 
+// NI SABADOS NI DOMINGOS
+
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
